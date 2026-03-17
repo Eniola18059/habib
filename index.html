@@ -148,7 +148,7 @@
     .stat-n{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,5vw,4rem);font-weight:300;color:var(--mint);line-height:1}
     .stat-l{font-size:.68rem;color:rgba(255,255,255,.35);letter-spacing:.14em;text-transform:uppercase;margin-top:.5rem}
 
-    /* ═══ STORY — edge-to-edge split ═══ */
+    /* ═══ STORY ═══ */
     .story{display:grid;grid-template-columns:1fr 1fr;min-height:620px}
     .story-img-col{position:relative;overflow:hidden}
     .story-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;min-height:500px;transition:transform 7s ease}
@@ -182,15 +182,13 @@
     .mosaic-inner{max-width:1280px;margin:0 auto}
     .mosaic-header{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:end;margin-bottom:2.5rem}
     .mosaic-header .right{font-size:.95rem;color:var(--text-muted);line-height:1.85;font-weight:300}
-    /* 5-image asymmetric grid — NO fixed row heights, uses aspect-ratio */
     .mosaic-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;grid-template-rows:auto auto;gap:10px}
     .mc{border-radius:10px;overflow:hidden;position:relative;cursor:default}
     .mc.span-rows{grid-row:span 2}
     .mc-img{width:100%;display:block;object-fit:cover;transition:transform .55s var(--ease)}
-    /* Heights via aspect-ratio — no fixed px, scales with grid */
     .mc.span-rows .mc-img{height:100%;position:absolute;inset:0;object-fit:cover}
     .mc.span-rows{position:relative}
-    .mc.span-rows::before{content:'';display:block;padding-top:calc(200% + 10px)} /* matches 2 rows */
+    .mc.span-rows::before{content:'';display:block;padding-top:calc(200% + 10px)}
     .mc:not(.span-rows) .mc-img{aspect-ratio:4/3}
     .mc:hover .mc-img{transform:scale(1.05)}
     .mc-ov{position:absolute;inset:0;background:rgba(20,20,20,.12);transition:background .3s}
@@ -202,7 +200,7 @@
     .fq{position:relative;min-height:480px;display:flex;align-items:center;overflow:hidden}
     .fq-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%}
     .fq-ov{position:absolute;inset:0;background:linear-gradient(100deg,rgba(10,10,10,.9) 0%,rgba(10,10,10,.55) 50%,rgba(10,10,10,.15) 100%)}
-    .fq-body{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;padding:var(--pad) var(--side);max-width:680px}
+    .fq-body{position:relative;z-index:2;width:100%;padding:var(--pad) var(--side);max-width:680px}
     .fq-mark{font-family:'Cormorant Garamond',serif;font-size:6.5rem;color:var(--mint);opacity:.22;line-height:.75;margin-bottom:-.4rem}
     .fq-text{font-family:'Cormorant Garamond',serif;font-size:clamp(1.55rem,3.2vw,2.6rem);font-weight:300;font-style:italic;color:var(--white);line-height:1.4;margin-bottom:1.8rem}
     .fq-text em{color:var(--mint);font-style:normal;font-weight:600}
@@ -223,7 +221,7 @@
     .tc-name{font-size:.85rem;font-weight:600;color:var(--text-dark)}
     .tc-role{font-size:.72rem;color:var(--text-muted);margin-top:.1rem}
 
-    /* ═══ GIRLS CORNER — flip split ═══ */
+    /* ═══ GIRLS CORNER ═══ */
     .girls{display:grid;grid-template-columns:1fr 1fr;min-height:580px}
     .girls-text-col{background:var(--charcoal);padding:clamp(3.5rem,6vw,6rem) clamp(2.5rem,5vw,5rem);display:flex;flex-direction:column;justify-content:center}
     .girls-img-col{position:relative;overflow:hidden}
@@ -284,43 +282,10 @@
     .foot-bottom p span{color:var(--rose)}
 
     /* ═══ RESPONSIVE ═══ */
-    @media(max-width:1100px){
-      .programs-header{grid-template-columns:1fr;gap:1rem}
-      .mosaic-header{grid-template-columns:1fr;gap:1rem}
-    }
-    @media(max-width:960px){
-      .story{grid-template-columns:1fr}
-      .story-img-fade{display:none}
-      .story-img-col{min-height:380px}
-      .girls{grid-template-columns:1fr}
-      .girls-img-fade{display:none}
-      .girls-img-col{min-height:360px;order:-1}
-      .foot-top{grid-template-columns:1fr 1fr;gap:2rem}
-      .mosaic-grid{grid-template-columns:1fr 1fr}
-      .mc.span-rows{grid-row:span 1}
-      .mc.span-rows::before{padding-top:0}
-      .mc.span-rows .mc-img{position:static;height:auto;aspect-ratio:4/3}
-    }
-    @media(max-width:840px){
-      .nav-links{display:none}.hamburger{display:flex}
-      .programs-grid{grid-template-columns:1fr 1fr}
-      .mem-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}
-      .testi-grid{grid-template-columns:1fr 1fr}
-      .stats-grid{grid-template-columns:1fr 1fr}
-      .cta-inner{flex-direction:column;align-items:flex-start}
-    }
-    @media(max-width:560px){
-      :root{--nav-h:64px;--side:4.5%}
-      .programs-grid{grid-template-columns:1fr}
-      .testi-grid{grid-template-columns:1fr}
-      .mosaic-grid{grid-template-columns:1fr 1fr}
-      .foot-top{grid-template-columns:1fr}
-      .foot-bottom{flex-direction:column;text-align:center}
-      .hero-acts{flex-direction:column}
-      .hero-acts .btn{text-align:center}
-      .cta-btns{flex-direction:column}
-      .cta-btns .btn{text-align:center}
-    }
+    @media(max-width:1100px){.programs-header{grid-template-columns:1fr;gap:1rem}.mosaic-header{grid-template-columns:1fr;gap:1rem}}
+    @media(max-width:960px){.story{grid-template-columns:1fr}.story-img-fade{display:none}.story-img-col{min-height:380px}.girls{grid-template-columns:1fr}.girls-img-fade{display:none}.girls-img-col{min-height:360px;order:-1}.foot-top{grid-template-columns:1fr 1fr;gap:2rem}.mosaic-grid{grid-template-columns:1fr 1fr}.mc.span-rows{grid-row:span 1}.mc.span-rows::before{padding-top:0}.mc.span-rows .mc-img{position:static;height:auto;aspect-ratio:4/3}}
+    @media(max-width:840px){.nav-links{display:none}.hamburger{display:flex}.programs-grid{grid-template-columns:1fr 1fr}.mem-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}.testi-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.cta-inner{flex-direction:column;align-items:flex-start}}
+    @media(max-width:560px){:root{--nav-h:64px;--side:4.5%}.programs-grid{grid-template-columns:1fr}.testi-grid{grid-template-columns:1fr}.mosaic-grid{grid-template-columns:1fr 1fr}.foot-top{grid-template-columns:1fr}.foot-bottom{flex-direction:column;text-align:center}.hero-acts{flex-direction:column}.hero-acts .btn{text-align:center}.cta-btns{flex-direction:column}.cta-btns .btn{text-align:center}}
   </style>
 </head>
 <body>
@@ -333,7 +298,7 @@
   <div class="pre-bar"></div>
 </div>
 
-<!-- MOBILE MENU -->
+<!-- MOBILE MENU — Gallery removed -->
 <div class="mobile-menu" id="mobileMenu">
   <ul>
     <li><a href="about.html" class="mlink">About</a></li>
@@ -341,14 +306,14 @@
     <li><a href="member.html" class="mlink">Membership</a></li>
     <li><a href="podcast.html" class="mlink">Podcast</a></li>
     <li><a href="founder.html" class="mlink">Founder</a></li>
-    <li><a href="gallery.html" class="mlink">Gallery</a></li>
+    <li><a href="contact.html" class="mlink">Contact</a></li>
   </ul>
   <div class="mobile-cta-wrap">
     <a href="member.html" class="btn btn-rose mlink">Join the Community</a>
   </div>
 </div>
 
-<!-- NAV -->
+<!-- NAV — Gallery removed, Contact added -->
 <nav id="nav">
   <a href="index.html" class="nav-logo">W<span class="ill">ILL</span><span class="net">NET</span></a>
   <ul class="nav-links">
@@ -357,7 +322,7 @@
     <li><a href="member.html">Membership</a></li>
     <li><a href="podcast.html">Podcast</a></li>
     <li><a href="founder.html">Founder</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
     <li><a href="member.html" class="nav-cta">Join Now</a></li>
   </ul>
   <button class="hamburger" id="ham" aria-label="Menu" aria-expanded="false">
@@ -365,7 +330,7 @@
   </button>
 </nav>
 
-<!-- ══════════ HERO ══════════ -->
+<!-- HERO -->
 <section class="hero">
   <img class="hero-img"
     src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1600&q=85&fit=crop&crop=focalpoint&fp-y=0.3"
@@ -417,7 +382,7 @@
   </div>
 </div>
 
-<!-- ══════════ STORY ══════════ -->
+<!-- STORY -->
 <section class="story">
   <div class="story-img-col reveal-l">
     <img class="story-img"
@@ -439,7 +404,7 @@
   </div>
 </section>
 
-<!-- ══════════ PROGRAMS ══════════ -->
+<!-- PROGRAMS -->
 <section class="programs">
   <div class="programs-inner">
     <div class="programs-header reveal">
@@ -450,11 +415,8 @@
       <p class="right">Every programme at WILLNET is built around tools women can use immediately — practical skills, not distant theory.</p>
     </div>
     <div class="programs-grid">
-
       <div class="pc reveal" style="transition-delay:.05s">
-        <img class="pc-img"
-          src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=720&q=82&fit=crop"
-          alt="Leadership Learning Sessions"/>
+        <img class="pc-img" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=720&q=82&fit=crop" alt="Leadership Learning Sessions"/>
         <div class="pc-ov"></div>
         <div class="pc-body">
           <div class="pc-n">01</div>
@@ -464,11 +426,8 @@
         </div>
         <div class="pc-bar"></div>
       </div>
-
       <div class="pc reveal" style="transition-delay:.14s">
-        <img class="pc-img"
-          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=720&q=82&fit=crop"
-          alt="Mentorship Circles"/>
+        <img class="pc-img" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=720&q=82&fit=crop" alt="Mentorship Circles"/>
         <div class="pc-ov"></div>
         <div class="pc-body">
           <div class="pc-n">02</div>
@@ -478,11 +437,8 @@
         </div>
         <div class="pc-bar"></div>
       </div>
-
       <div class="pc reveal" style="transition-delay:.23s">
-        <img class="pc-img"
-          src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=720&q=82&fit=crop"
-          alt="Networking Events"/>
+        <img class="pc-img" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=720&q=82&fit=crop" alt="Networking Events"/>
         <div class="pc-ov"></div>
         <div class="pc-body">
           <div class="pc-n">03</div>
@@ -492,7 +448,6 @@
         </div>
         <div class="pc-bar"></div>
       </div>
-
     </div>
     <div style="text-align:center;margin-top:2.5rem" class="reveal">
       <a href="program.html" style="color:rgba(255,255,255,.45);font-size:.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:.2rem">See All Programs →</a>
@@ -500,7 +455,7 @@
   </div>
 </section>
 
-<!-- ══════════ MOSAIC ══════════ -->
+<!-- MOSAIC -->
 <section class="mosaic">
   <div class="mosaic-inner">
     <div class="mosaic-header reveal">
@@ -512,52 +467,35 @@
     </div>
     <div class="mosaic-grid reveal">
       <div class="mc span-rows">
-        <img class="mc-img"
-          src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=700&q=82&fit=crop"
-          alt="Leadership Summit"/>
-        <div class="mc-ov"></div>
-        <div class="mc-label">Leadership Summit</div>
+        <img class="mc-img" src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=700&q=82&fit=crop" alt="Leadership Summit"/>
+        <div class="mc-ov"></div><div class="mc-label">Leadership Summit</div>
       </div>
       <div class="mc">
-        <img class="mc-img"
-          src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=500&q=82&fit=crop"
-          alt="Mentorship Circle"/>
-        <div class="mc-ov"></div>
-        <div class="mc-label">Mentorship Circle</div>
+        <img class="mc-img" src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=500&q=82&fit=crop" alt="Mentorship Circle"/>
+        <div class="mc-ov"></div><div class="mc-label">Mentorship Circle</div>
       </div>
       <div class="mc">
-        <img class="mc-img"
-          src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=500&q=82&fit=crop"
-          alt="Girls Corner"/>
-        <div class="mc-ov"></div>
-        <div class="mc-label">Girls Corner</div>
+        <img class="mc-img" src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=500&q=82&fit=crop" alt="Girls Corner"/>
+        <div class="mc-ov"></div><div class="mc-label">Girls Corner</div>
       </div>
       <div class="mc">
-        <img class="mc-img"
-          src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&q=82&fit=crop"
-          alt="Workshop"/>
-        <div class="mc-ov"></div>
-        <div class="mc-label">Workshop</div>
+        <img class="mc-img" src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&q=82&fit=crop" alt="Workshop"/>
+        <div class="mc-ov"></div><div class="mc-label">Workshop</div>
       </div>
       <div class="mc">
-        <img class="mc-img"
-          src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=500&q=82&fit=crop"
-          alt="Community Dinner"/>
-        <div class="mc-ov"></div>
-        <div class="mc-label">Community Dinner</div>
+        <img class="mc-img" src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=500&q=82&fit=crop" alt="Community Dinner"/>
+        <div class="mc-ov"></div><div class="mc-label">Community Dinner</div>
       </div>
-    </div>
-    <div style="text-align:center;margin-top:2rem" class="reveal">
-      <a href="gallery.html" style="color:var(--text-muted);font-size:.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(43,43,43,.18);padding-bottom:.2rem">View Full Gallery →</a>
     </div>
   </div>
 </section>
 
-<!-- ══════════ FOUNDER QUOTE ══════════ -->
+<!-- FOUNDER QUOTE -->
 <section class="fq">
   <img class="fq-img"
-    src="IMG_8475.JPG.jpeg"
-    alt="Aisha Umar, Founder of WILLNET"/>
+    src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=1400&q=85&fit=crop&crop=focalpoint&fp-y=0.2"
+    alt="Aisha Umar, Founder of WILLNET"
+    onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1400&q=85&fit=crop&crop=focalpoint&fp-y=0.25'"/>
   <div class="fq-ov"></div>
   <div class="fq-body reveal">
     <div class="fq-mark">"</div>
@@ -572,7 +510,7 @@
   </div>
 </section>
 
-<!-- ══════════ TESTIMONIALS ══════════ -->
+<!-- TESTIMONIALS -->
 <section class="testi">
   <div class="testi-inner">
     <div class="testi-head reveal">
@@ -580,7 +518,6 @@
       <h2 class="h2 center">Stories of <em>growth</em> and impact</h2>
     </div>
     <div class="testi-grid">
-
       <div class="tc reveal" style="transition-delay:.05s">
         <div class="tc-qm">"</div>
         <p class="tc-text">WILLNET gave me a community of women who truly understood my journey. The mentorship circles changed how I see myself as a leader.</p>
@@ -589,7 +526,6 @@
           <div><div class="tc-name">Fatima O.</div><div class="tc-role">Leadership Circle Member</div></div>
         </div>
       </div>
-
       <div class="tc reveal" style="transition-delay:.12s">
         <div class="tc-qm">"</div>
         <p class="tc-text">Three months in, I had negotiated a promotion and found my voice in board-level conversations. The tools here are real, practical, and transformative.</p>
@@ -598,7 +534,6 @@
           <div><div class="tc-name">Adaeze N.</div><div class="tc-role">Community Member</div></div>
         </div>
       </div>
-
       <div class="tc reveal" style="transition-delay:.19s">
         <div class="tc-qm">"</div>
         <p class="tc-text">My daughter attended Girls Corner at 16. Watching her confidence transform was one of the proudest moments of my life. WILLNET changes generations.</p>
@@ -607,12 +542,11 @@
           <div><div class="tc-name">Ngozi A.</div><div class="tc-role">Girls Corner Parent</div></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══════════ GIRLS CORNER ══════════ -->
+<!-- GIRLS CORNER -->
 <section class="girls">
   <div class="girls-text-col reveal-l">
     <div class="section-tag mint">Youth Initiative</div>
@@ -634,7 +568,7 @@
   </div>
 </section>
 
-<!-- ══════════ MEMBERSHIP ══════════ -->
+<!-- MEMBERSHIP -->
 <section class="membership">
   <div class="membership-inner">
     <div class="membership-head reveal">
@@ -643,11 +577,8 @@
       <p style="font-size:.92rem;color:var(--text-muted);line-height:1.8;margin-top:.8rem">Whether you're just starting out or ready to lead intentionally — there's a place for you here.</p>
     </div>
     <div class="mem-grid">
-
       <div class="mcard reveal" style="transition-delay:.05s">
-        <img class="mcard-img"
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=82&fit=crop"
-          alt="Free Membership"/>
+        <img class="mcard-img" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=82&fit=crop" alt="Free Membership"/>
         <div class="mcard-body">
           <div class="mcard-type">Community</div>
           <div class="mcard-name">Free Membership</div>
@@ -663,11 +594,8 @@
           <a href="member.html" class="mcard-btn mcard-btn-outline">Get Started Free</a>
         </div>
       </div>
-
       <div class="mcard featured reveal" style="transition-delay:.13s">
-        <img class="mcard-img"
-          src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&q=82&fit=crop"
-          alt="Leadership Circle"/>
+        <img class="mcard-img" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&q=82&fit=crop" alt="Leadership Circle"/>
         <div class="mcard-body">
           <div class="mcard-badge">Most Popular</div>
           <div class="mcard-type">Premium</div>
@@ -685,11 +613,8 @@
           <a href="member.html" class="mcard-btn mcard-btn-mint">Join Leadership Circle</a>
         </div>
       </div>
-
       <div class="mcard reveal" style="transition-delay:.21s">
-        <img class="mcard-img"
-          src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=82&fit=crop"
-          alt="Girls Corner"/>
+        <img class="mcard-img" src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=82&fit=crop" alt="Girls Corner"/>
         <div class="mcard-body">
           <div class="mcard-type">Youth Initiative</div>
           <div class="mcard-name">Girls Corner</div>
@@ -705,7 +630,6 @@
           <a href="member.html" class="mcard-btn mcard-btn-outline">Join Girls Corner</a>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -748,7 +672,6 @@
     <div class="foot-col"><h4>Contact</h4><ul>
       <li><a href="contact.html">Contact Us</a></li>
       <li><a href="podcast.html">Listen to Podcast</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
       <li><a href="mailto:hello@willnet.org">hello@willnet.org</a></li>
     </ul></div>
   </div>
