@@ -14,29 +14,23 @@
       --mint-pale:#e8f6f1;
       --mint-deep:#7abfaa;
       --soft-sage:#8FFBB1;
-
       --rose:#D889AA;
       --rose-light:#e8a8c2;
       --rose-pale:#f5dde8;
       --mauve:#B77C8E;
       --mauve-deep:#8a5568;
-
       --cream:#F6F5F1;
       --cream-warm:#faf8f4;
       --white:#ffffff;
-
       --charcoal:#2B2B2B;
       --text-dark:#2B2B2B;
       --text-mid:#4a4a4a;
       --text-muted:#7a7a7a;
-
       --dark-bg:#1a2e2a;
       --dark-mid:#243b35;
       --dark-light:#2e4d44;
-
       --border:rgba(169,216,200,.25);
       --border-rose:rgba(216,137,170,.2);
-
       --nav-h:76px;
       --ease:cubic-bezier(.16,1,.3,1);
     }
@@ -44,15 +38,17 @@
     html{scroll-behavior:smooth}
     body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden}
 
+    /* NAV */
     nav{position:fixed;top:0;left:0;right:0;z-index:500;height:var(--nav-h);padding:0 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(26,46,42,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(169,216,200,.15);transition:background .4s}
     nav.scrolled{background:rgba(26,46,42,.98)}
     .nav-logo{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,3vw,1.6rem);font-weight:600;color:var(--white);letter-spacing:.15em;text-decoration:none;z-index:601;position:relative}
-    .nav-logo span{color:var(--mint)}
+    .nav-logo .ill{color:var(--rose)}
+    .nav-logo .net{color:var(--mint)}
     .nav-links{display:flex;align-items:center;gap:2.5rem;list-style:none}
     .nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;transition:color .3s;position:relative}
     .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--mint);transition:width .3s}
-    .nav-links a:hover{color:var(--mint-light)}.nav-links a:hover::after,.nav-links a.active::after{width:100%}
-    .nav-links a.active{color:var(--mint-light)}
+    .nav-links a:hover{color:var(--mint-light)}.nav-links a:hover::after{width:100%}
+    .nav-links a.active{color:var(--mint-light)}.nav-links a.active::after{width:100%}
     .nav-cta{background:transparent!important;border:1px solid var(--mint)!important;color:var(--mint)!important;padding:.5rem 1.3rem;border-radius:2px;transition:background .3s,color .3s!important}
     .nav-cta::after{display:none!important}.nav-cta:hover{background:var(--mint)!important;color:var(--dark-bg)!important}
     .hamburger{display:none;flex-direction:column;justify-content:space-between;width:28px;height:20px;cursor:pointer;z-index:601;background:none;border:none;padding:0}
@@ -70,7 +66,6 @@
     .mobile-menu.open ul li:nth-child(4){opacity:1;transform:none;transition-delay:.26s}
     .mobile-menu.open ul li:nth-child(5){opacity:1;transform:none;transition-delay:.32s}
     .mobile-menu.open ul li:nth-child(6){opacity:1;transform:none;transition-delay:.38s}
-    .mobile-menu.open ul li:nth-child(7){opacity:1;transform:none;transition-delay:.44s}
     .mobile-menu ul li a{display:block;padding:.75rem 2rem;font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,6vw,2.6rem);font-weight:300;color:rgba(255,255,255,.8);text-decoration:none;letter-spacing:.06em;transition:color .3s}
     .mobile-menu ul li a:hover{color:var(--mint-light)}
     .mobile-cta-wrap{margin-top:2rem;opacity:0;transform:translateY(20px);transition:opacity .4s .42s,transform .4s .42s}
@@ -81,14 +76,15 @@
     .mobile-socials span:hover{color:var(--mint)}
     body.menu-open{overflow:hidden}
 
+    /* PAGE HERO */
     .page-hero{background:var(--dark-bg);padding:calc(var(--nav-h) + clamp(4rem,8vw,6rem)) 5% clamp(4rem,8vw,5rem);position:relative;overflow:hidden;text-align:center}
-    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 90% at 50% 60%,rgba(169,216,200,.08) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 10% 90%,rgba(216,137,170,.05) 0%,transparent 60%)}
+    .page-hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1600&q=80&fit=crop&crop=focalpoint&fp-y=0.35');background-size:cover;background-position:center 35%}
+    .page-hero-tint{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,46,42,.95) 0%,rgba(26,46,42,.85) 60%,rgba(26,46,42,.97) 100%)}
     .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(169,216,200,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(169,216,200,.04) 1px,transparent 1px);background-size:60px 60px;animation:gridMove 20s linear infinite}
     @keyframes gridMove{0%{background-position:0 0}100%{background-position:60px 60px}}
     .particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
     .particle{position:absolute;border-radius:50%;animation:particleRise linear infinite}
-    .particle.mint{background:rgba(169,216,200,.15)}
-    .particle.rose{background:rgba(216,137,170,.1)}
+    .particle.mint{background:rgba(169,216,200,.15)}.particle.rose{background:rgba(216,137,170,.1)}
     @keyframes particleRise{0%{transform:translateY(100%) scale(0);opacity:0}10%{opacity:1}90%{opacity:.3}100%{transform:translateY(-20%) scale(1.2);opacity:0}}
     .page-hero-inner{position:relative;z-index:2;max-width:900px;margin:0 auto}
     .breadcrumb{display:flex;align-items:center;gap:.5rem;margin-bottom:2rem;justify-content:center;opacity:0;animation:fadeUp .6s var(--ease) .2s forwards}
@@ -107,13 +103,13 @@
     .trust-divider{width:1px;height:16px;background:rgba(255,255,255,.1)}
     @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 
+    /* SHARED */
     .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
     .reveal.visible{opacity:1;transform:translateY(0)}
     .reveal-left{opacity:0;transform:translateX(-32px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
     .reveal-left.visible{opacity:1;transform:translateX(0)}
     .reveal-right{opacity:0;transform:translateX(32px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
     .reveal-right.visible{opacity:1;transform:translateX(0)}
-
     .section-tag{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mint);font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:.8rem}
     .section-tag::before{content:'';width:30px;height:1px;background:var(--mint)}
     .section-tag.center{justify-content:center}.section-tag.center::before,.section-tag.center::after{content:'';width:30px;height:1px;background:var(--mint)}
@@ -121,6 +117,7 @@
     .section-title em{font-style:italic;color:var(--mauve)}
     .section-title.light{color:var(--white)}.section-title.light em{color:var(--mint-light)}
 
+    /* TIER SECTION */
     .tier-section{background:var(--cream);padding:clamp(4rem,8vw,7rem) 5%}
     .tier-intro{text-align:center;max-width:640px;margin:0 auto 4rem}
     .tier-intro p{font-size:1rem;color:var(--text-mid);line-height:1.85;font-weight:300;margin-top:.8rem}
@@ -129,6 +126,11 @@
     .tier-card:hover{border-color:rgba(169,216,200,.5);transform:translateY(-6px);box-shadow:0 24px 70px rgba(26,46,42,.1)}
     .tier-card.featured{background:var(--dark-bg);border-color:rgba(169,216,200,.3);transform:translateY(-12px);box-shadow:0 32px 90px rgba(26,46,42,.35)}
     .tier-card.featured:hover{transform:translateY(-18px);box-shadow:0 40px 100px rgba(26,46,42,.45)}
+
+    /* Tier card image strip */
+    .tier-img{width:calc(100% + 4rem);margin:-2.5rem -2rem 1.8rem;height:140px;object-fit:cover;display:block}
+    .tier-card.featured .tier-img{filter:brightness(.75) saturate(.8)}
+
     .tier-popular{position:absolute;top:0;left:50%;transform:translateX(-50%);background:var(--mint);color:var(--dark-bg);font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:.35rem 1.2rem;border-radius:0 0 8px 8px;white-space:nowrap}
     .tier-badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;padding:.3rem .9rem;border-radius:100px;margin-bottom:1.5rem;font-weight:600}
     .tier-card:not(.featured) .tier-badge{background:rgba(169,216,200,.12);border:1px solid rgba(169,216,200,.3);color:var(--mint-deep)}
@@ -166,8 +168,8 @@
     .tier-card.featured .tier-cta:hover{background:var(--mint-light);transform:translateY(-2px);box-shadow:0 12px 40px rgba(169,216,200,.35)}
     .tier-card.girls .tier-cta{background:transparent;border:1px solid rgba(216,137,170,.3);color:var(--mauve)}
     .tier-card.girls .tier-cta:hover{background:var(--rose);color:var(--white);border-color:var(--rose);transform:translateY(-2px)}
-    .tier-card.featured::before{content:'';position:absolute;top:-80px;right:-80px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(169,216,200,.07),transparent 70%);pointer-events:none}
 
+    /* COMPARE */
     .compare-section{background:var(--white);padding:clamp(4rem,8vw,7rem) 5%}
     .compare-inner{max-width:960px;margin:0 auto}
     .compare-table{width:100%;border-collapse:collapse;margin-top:3rem}
@@ -186,7 +188,9 @@
     .check-icon.rose{color:var(--mauve)}
     .dash-icon{color:rgba(26,46,42,.18);font-size:1.2rem}
 
+    /* WHO SECTION */
     .who-section{background:var(--dark-bg);padding:clamp(4rem,8vw,7rem) 5%;overflow:hidden;position:relative}
+    .who-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1400&q=40&fit=crop');background-size:cover;background-position:center;opacity:.05;pointer-events:none}
     .who-section::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(169,216,200,.05),transparent 70%);pointer-events:none}
     .who-section::after{content:'';position:absolute;bottom:-150px;left:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(216,137,170,.05),transparent 70%);pointer-events:none}
     .who-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
@@ -198,6 +202,7 @@
     .who-desc{font-size:.87rem;color:rgba(255,255,255,.45);line-height:1.75}
     .who-tag{display:inline-block;margin-top:1rem;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--mint);border:1px solid rgba(169,216,200,.25);padding:.25rem .75rem;border-radius:100px}
 
+    /* JOIN FORM */
     .join-section{background:var(--cream);padding:clamp(4rem,8vw,7rem) 5%}
     .join-inner{max-width:700px;margin:0 auto}
     .join-intro{text-align:center;margin-bottom:3rem}
@@ -229,11 +234,14 @@
     .form-note{text-align:center;font-size:.78rem;color:var(--text-muted);margin-top:1rem;line-height:1.6}
     .form-note a{color:var(--mint-deep);text-decoration:none}
 
+    /* TESTIMONIALS */
     .testi-section{background:var(--white);padding:clamp(4rem,8vw,7rem) 5%}
     .testi-inner{max-width:1200px;margin:0 auto}
     .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-    .testi-card{background:var(--cream);border:1px solid rgba(169,216,200,.15);border-radius:12px;padding:2rem;transition:border-color .35s,transform .35s}
+    .testi-card{background:var(--cream);border:1px solid rgba(169,216,200,.15);border-radius:12px;overflow:hidden;transition:border-color .35s,transform .35s}
     .testi-card:hover{border-color:var(--mint);transform:translateY(-4px)}
+    .testi-card-img{width:100%;height:140px;object-fit:cover;display:block}
+    .testi-card-body{padding:1.8rem}
     .testi-quote{font-family:'Cormorant Garamond',serif;font-size:3rem;color:rgba(169,216,200,.3);line-height:1;margin-bottom:.4rem}
     .testi-text{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text-mid);line-height:1.8;font-style:italic;margin-bottom:1.5rem}
     .testi-author{display:flex;align-items:center;gap:.75rem}
@@ -242,6 +250,7 @@
     .testi-role{font-size:.72rem;color:var(--text-muted);margin-top:.1rem}
     .testi-tier-tag{display:inline-block;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mint-deep);border:1px solid rgba(169,216,200,.3);padding:.2rem .65rem;border-radius:100px;margin-bottom:1rem}
 
+    /* FAQ */
     .faq-section{background:var(--cream);padding:clamp(4rem,8vw,6rem) 5%}
     .faq-inner{max-width:760px;margin:0 auto}
     .faq-item{background:var(--white);border:1px solid rgba(169,216,200,.18);border-radius:8px;overflow:hidden;margin-bottom:.75rem;transition:border-color .35s}
@@ -257,10 +266,12 @@
     .faq-item.open .faq-a{max-height:300px}
     .faq-a-inner{padding:.2rem 1.6rem 1.3rem;font-size:.88rem;color:var(--text-muted);line-height:1.85;border-top:1px solid rgba(169,216,200,.12);padding-top:1rem}
 
+    /* FOOTER */
     footer{background:#111e1b;padding:clamp(3rem,6vw,4rem) 5% 2rem}
     .footer-top{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.05)}
     .footer-brand .logo{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--white);letter-spacing:.15em;margin-bottom:.3rem}
-    .footer-brand .logo span{color:var(--mint)}
+    .footer-brand .logo .ill{color:var(--rose)}
+    .footer-brand .logo .net{color:var(--mint)}
     .footer-brand .tagline{font-size:.75rem;color:rgba(255,255,255,.3);letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.2rem}
     .footer-brand p{font-size:.85rem;color:rgba(255,255,255,.3);line-height:1.75;max-width:280px}
     .footer-col h4{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mint);font-weight:600;margin-bottom:1.2rem}
@@ -271,8 +282,27 @@
     .footer-bottom p{font-size:.78rem;color:rgba(255,255,255,.2)}
     .footer-bottom p span{color:var(--rose)}
 
-    @media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}.tier-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto}.tier-card.featured{transform:none}.who-grid{grid-template-columns:1fr 1fr}.testi-grid{grid-template-columns:1fr 1fr}.footer-top{grid-template-columns:1fr 1fr;gap:2rem}.compare-table{font-size:.8rem}}
-    @media(max-width:600px){:root{--nav-h:64px}.form-row{grid-template-columns:1fr}.tier-selector{grid-template-columns:1fr}.who-grid{grid-template-columns:1fr}.testi-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}.compare-table th:nth-child(3),.compare-table td:nth-child(3){display:none}}
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .nav-links{display:none}.hamburger{display:flex}
+      .tier-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto}
+      .tier-card.featured{transform:none}
+      .who-grid{grid-template-columns:1fr 1fr}
+      .testi-grid{grid-template-columns:1fr 1fr}
+      .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
+      .compare-table{font-size:.8rem}
+    }
+    @media(max-width:600px){
+      :root{--nav-h:64px}
+      .form-row{grid-template-columns:1fr}
+      .tier-selector{grid-template-columns:1fr}
+      .who-grid{grid-template-columns:1fr}
+      .testi-grid{grid-template-columns:1fr}
+      .footer-top{grid-template-columns:1fr}
+      .footer-bottom{flex-direction:column;text-align:center}
+      .compare-table th:nth-child(3),.compare-table td:nth-child(3){display:none}
+      .tier-img{height:100px}
+    }
   </style>
 </head>
 <body>
@@ -286,10 +316,9 @@
     <li><a href="member.html" class="mlink">Membership</a></li>
     <li><a href="podcast.html" class="mlink">Podcast</a></li>
     <li><a href="founder.html" class="mlink">Founder</a></li>
-    <li><a href="gallery.html" class="mlink">Gallery</a></li>
   </ul>
   <div class="mobile-cta-wrap">
-    <a href="contact.html" class="mlink" style="background:var(--rose);color:var(--white);padding:1rem 2.5rem;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;display:inline-block;border-radius:2px;">Join the Community</a>
+    <a href="member.html" class="mlink" style="background:var(--rose);color:var(--white);padding:1rem 2.5rem;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;display:inline-block;border-radius:2px;">Join the Community</a>
   </div>
   <div class="mobile-socials">
     <span>Instagram</span><span>LinkedIn</span><span>Spotify</span>
@@ -298,7 +327,7 @@
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="index.html" class="nav-logo">W<span style="color:var(--rose)">ILL</span><span>NET</span></a>
+  <a href="index.html" class="nav-logo">W<span class="ill">ILL</span><span class="net">NET</span></a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
@@ -306,7 +335,6 @@
     <li><a href="member.html" class="active">Membership</a></li>
     <li><a href="podcast.html">Podcast</a></li>
     <li><a href="founder.html">Founder</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
     <li><a href="contact.html" class="nav-cta">Join Now</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileMenu">
@@ -316,19 +344,16 @@
 
 <!-- PAGE HERO -->
 <section class="page-hero">
-  <div class="hero-bg"></div>
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-tint"></div>
   <div class="hero-grid"></div>
   <div class="particles" id="particles"></div>
   <div class="page-hero-inner">
     <div class="breadcrumb">
-      <a href="index.html">Home</a>
-      <span>/</span>
-      <span class="current">Membership</span>
+      <a href="index.html">Home</a><span>/</span><span class="current">Membership</span>
     </div>
     <div class="page-hero-tag">Join WILLNET</div>
-    <h1 class="page-hero-title">
-      Choose how you<br><em>want to grow</em>
-    </h1>
+    <h1 class="page-hero-title">Choose how you<br><em>want to grow</em></h1>
     <p class="page-hero-sub">Whether you're just starting out or ready for deep, structured leadership development — there's a place for you in the WILLNET community. Pick the tier that fits where you are right now.</p>
     <div class="hero-trust">
       <div class="trust-item"><span>✅</span><span>No long commitments</span></div>
@@ -352,6 +377,7 @@
   <div class="tier-grid">
 
     <div class="tier-card reveal" style="transition-delay:.05s">
+      <img class="tier-img" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=700&q=75&fit=crop&crop=focalpoint&fp-y=0.3" alt="Community Membership"/>
       <div class="tier-badge">🌱 Free</div>
       <div class="tier-name">Community Membership</div>
       <div class="tier-tagline">Perfect for women who want to start their leadership journey and connect with a like-minded community.</div>
@@ -371,6 +397,7 @@
 
     <div class="tier-card featured reveal" style="transition-delay:.15s">
       <div class="tier-popular">Most Popular</div>
+      <img class="tier-img" src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=700&q=75&fit=crop&crop=focalpoint&fp-y=0.4" alt="Leadership Circle"/>
       <div class="tier-badge" style="margin-top:.5rem">⭐ Premium</div>
       <div class="tier-name">Leadership Circle</div>
       <div class="tier-tagline">For women committed to intentional, structured leadership growth with community, mentorship, and accountability.</div>
@@ -391,6 +418,7 @@
     </div>
 
     <div class="tier-card girls reveal" style="transition-delay:.25s">
+      <img class="tier-img" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=700&q=75&fit=crop&crop=focalpoint&fp-y=0.3" alt="Girls Corner"/>
       <div class="tier-badge">👩‍🎓 Youth</div>
       <div class="tier-name">Girls Corner</div>
       <div class="tier-tagline">A special initiative designed for teenage girls aged 13–19 to develop confidence, leadership, and purpose early.</div>
@@ -455,48 +483,19 @@
 
 <!-- WHO IS IT FOR -->
 <section class="who-section">
+  <div class="who-bg"></div>
   <div class="who-inner">
     <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto">
       <div class="section-tag center">Is WILLNET right for you?</div>
       <h2 class="section-title light">Built for women at <em>every stage</em></h2>
     </div>
     <div class="who-grid">
-      <div class="who-card reveal" style="transition-delay:.05s">
-        <div class="who-icon">🌱</div>
-        <div class="who-title">Starting Your Career</div>
-        <div class="who-desc">You're building your foundation — finding your voice, understanding your strengths, and figuring out what kind of leader you want to be. WILLNET helps you start with clarity and confidence.</div>
-        <div class="who-tag">Community Membership</div>
-      </div>
-      <div class="who-card reveal" style="transition-delay:.13s">
-        <div class="who-icon">💼</div>
-        <div class="who-title">Navigating a Leadership Role</div>
-        <div class="who-desc">You're already leading — but maybe without a strong support system. You want structured growth, accountability, and honest peers who understand the challenges of leading as a woman.</div>
-        <div class="who-tag">Leadership Circle</div>
-      </div>
-      <div class="who-card reveal" style="transition-delay:.21s">
-        <div class="who-icon">🚀</div>
-        <div class="who-title">Building a Business</div>
-        <div class="who-desc">Entrepreneurship is a leadership journey in itself. The community, mentorship, and learning at WILLNET help women founders grow with both the soft and strategic skills they need.</div>
-        <div class="who-tag">Leadership Circle</div>
-      </div>
-      <div class="who-card reveal" style="transition-delay:.29s">
-        <div class="who-icon">🌟</div>
-        <div class="who-title">Exploring New Opportunities</div>
-        <div class="who-desc">You're at a pivot point — a career transition, a new chapter, or a bold new direction. WILLNET gives you a community to think through the next move and step forward with intention.</div>
-        <div class="who-tag">Community or Leadership Circle</div>
-      </div>
-      <div class="who-card reveal" style="transition-delay:.37s">
-        <div class="who-icon">🤝</div>
-        <div class="who-title">Giving Back as a Mentor</div>
-        <div class="who-desc">You've walked the path and you're ready to help others navigate it. Leadership Circle members have the opportunity to mentor emerging women leaders within our circles.</div>
-        <div class="who-tag">Leadership Circle</div>
-      </div>
-      <div class="who-card reveal" style="transition-delay:.45s">
-        <div class="who-icon">👩‍🎓</div>
-        <div class="who-title">A Teenage Girl Ready to Lead</div>
-        <div class="who-desc">Leadership starts before the first job title. Girls Corner gives teenage girls a safe, encouraging space to grow in confidence, communication, and purpose — before the world tells them they can't.</div>
-        <div class="who-tag">Girls Corner</div>
-      </div>
+      <div class="who-card reveal" style="transition-delay:.05s"><div class="who-icon">🌱</div><div class="who-title">Starting Your Career</div><div class="who-desc">You're building your foundation — finding your voice, understanding your strengths, and figuring out what kind of leader you want to be. WILLNET helps you start with clarity and confidence.</div><div class="who-tag">Community Membership</div></div>
+      <div class="who-card reveal" style="transition-delay:.13s"><div class="who-icon">💼</div><div class="who-title">Navigating a Leadership Role</div><div class="who-desc">You're already leading — but maybe without a strong support system. You want structured growth, accountability, and honest peers who understand the challenges of leading as a woman.</div><div class="who-tag">Leadership Circle</div></div>
+      <div class="who-card reveal" style="transition-delay:.21s"><div class="who-icon">🚀</div><div class="who-title">Building a Business</div><div class="who-desc">Entrepreneurship is a leadership journey in itself. The community, mentorship, and learning at WILLNET help women founders grow with both the soft and strategic skills they need.</div><div class="who-tag">Leadership Circle</div></div>
+      <div class="who-card reveal" style="transition-delay:.29s"><div class="who-icon">🌟</div><div class="who-title">Exploring New Opportunities</div><div class="who-desc">You're at a pivot point — a career transition, a new chapter, or a bold new direction. WILLNET gives you a community to think through the next move and step forward with intention.</div><div class="who-tag">Community or Leadership Circle</div></div>
+      <div class="who-card reveal" style="transition-delay:.37s"><div class="who-icon">🤝</div><div class="who-title">Giving Back as a Mentor</div><div class="who-desc">You've walked the path and you're ready to help others navigate it. Leadership Circle members have the opportunity to mentor emerging women leaders within our circles.</div><div class="who-tag">Leadership Circle</div></div>
+      <div class="who-card reveal" style="transition-delay:.45s"><div class="who-icon">👩‍🎓</div><div class="who-title">A Teenage Girl Ready to Lead</div><div class="who-desc">Leadership starts before the first job title. Girls Corner gives teenage girls a safe, encouraging space to grow in confidence, communication, and purpose — before the world tells them they can't.</div><div class="who-tag">Girls Corner</div></div>
     </div>
   </div>
 </section>
@@ -510,30 +509,30 @@
     </div>
     <div class="testi-grid">
       <div class="testi-card reveal" style="transition-delay:.05s">
-        <div class="testi-tier-tag">Leadership Circle</div>
-        <div class="testi-quote">"</div>
-        <div class="testi-text">Joining the Leadership Circle was the best investment I made in myself last year. The Mentorship Circle gave me perspective, accountability, and women I now call genuine friends and advisors.</div>
-        <div class="testi-author">
-          <div class="testi-avatar">CI</div>
-          <div><div class="testi-name">Chidera I.</div><div class="testi-role">Project Manager · Leadership Circle Member</div></div>
+        <img class="testi-card-img" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=75&fit=crop&crop=focalpoint&fp-y=0.25" alt="Leadership Circle Member"/>
+        <div class="testi-card-body">
+          <div class="testi-tier-tag">Leadership Circle</div>
+          <div class="testi-quote">"</div>
+          <div class="testi-text">Joining the Leadership Circle was the best investment I made in myself last year. The Mentorship Circle gave me perspective, accountability, and women I now call genuine friends and advisors.</div>
+          <div class="testi-author"><div class="testi-avatar">CI</div><div><div class="testi-name">Chidera I.</div><div class="testi-role">Project Manager · Leadership Circle Member</div></div></div>
         </div>
       </div>
       <div class="testi-card reveal" style="transition-delay:.15s">
-        <div class="testi-tier-tag">Community Member</div>
-        <div class="testi-quote">"</div>
-        <div class="testi-text">I started with the free membership just to explore. Within two months I had attended three events, connected with incredible women, and signed up for the Leadership Circle. This community is real.</div>
-        <div class="testi-author">
-          <div class="testi-avatar">SA</div>
-          <div><div class="testi-name">Sade A.</div><div class="testi-role">HR Professional · Now Leadership Circle</div></div>
+        <img class="testi-card-img" src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=600&q=75&fit=crop&crop=focalpoint&fp-y=0.2" alt="Community Member"/>
+        <div class="testi-card-body">
+          <div class="testi-tier-tag">Community Member</div>
+          <div class="testi-quote">"</div>
+          <div class="testi-text">I started with the free membership just to explore. Within two months I had attended three events, connected with incredible women, and signed up for the Leadership Circle. This community is real.</div>
+          <div class="testi-author"><div class="testi-avatar">SA</div><div><div class="testi-name">Sade A.</div><div class="testi-role">HR Professional · Now Leadership Circle</div></div></div>
         </div>
       </div>
       <div class="testi-card reveal" style="transition-delay:.25s">
-        <div class="testi-tier-tag">Girls Corner</div>
-        <div class="testi-quote">"</div>
-        <div class="testi-text">I never used to speak up in class. Girls Corner taught me that my voice matters and showed me how to use it. I gave a speech at my school assembly last term and I wasn't even nervous.</div>
-        <div class="testi-author">
-          <div class="testi-avatar">ZM</div>
-          <div><div class="testi-name">Zahra M.</div><div class="testi-role">Age 17 · Girls Corner Member</div></div>
+        <img class="testi-card-img" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=75&fit=crop&crop=focalpoint&fp-y=0.3" alt="Girls Corner Member"/>
+        <div class="testi-card-body">
+          <div class="testi-tier-tag">Girls Corner</div>
+          <div class="testi-quote">"</div>
+          <div class="testi-text">I never used to speak up in class. Girls Corner taught me that my voice matters and showed me how to use it. I gave a speech at my school assembly last term and I wasn't even nervous.</div>
+          <div class="testi-author"><div class="testi-avatar">ZM</div><div><div class="testi-name">Zahra M.</div><div class="testi-role">Age 17 · Girls Corner Member</div></div></div>
         </div>
       </div>
     </div>
@@ -548,51 +547,28 @@
       <h2 class="section-title" style="text-align:center">Join the <em>WILLNET community</em></h2>
       <p>Fill in the form below and we'll be in touch with everything you need to get started. Select the tier that's right for you.</p>
     </div>
-
     <div class="tier-selector reveal">
       <button class="tier-sel-btn active" onclick="selectTier(this,'Community Membership')">
-        <div class="ts-icon">🌱</div>
-        <div class="ts-name">Community</div>
-        <div class="ts-type">Free</div>
+        <div class="ts-icon">🌱</div><div class="ts-name">Community</div><div class="ts-type">Free</div>
       </button>
       <button class="tier-sel-btn" onclick="selectTier(this,'Leadership Circle')">
-        <div class="ts-icon">⭐</div>
-        <div class="ts-name">Leadership Circle</div>
-        <div class="ts-type">Premium</div>
+        <div class="ts-icon">⭐</div><div class="ts-name">Leadership Circle</div><div class="ts-type">Premium</div>
       </button>
       <button class="tier-sel-btn" onclick="selectTier(this,'Girls Corner')">
-        <div class="ts-icon">👩‍🎓</div>
-        <div class="ts-name">Girls Corner</div>
-        <div class="ts-type">Youth (13–19)</div>
+        <div class="ts-icon">👩‍🎓</div><div class="ts-name">Girls Corner</div><div class="ts-type">Youth (13–19)</div>
       </button>
     </div>
-
     <div class="join-form reveal">
       <div class="form-row">
-        <div class="form-group">
-          <label for="fname">First Name *</label>
-          <input type="text" id="fname" placeholder="e.g. Aisha"/>
-        </div>
-        <div class="form-group">
-          <label for="lname">Last Name *</label>
-          <input type="text" id="lname" placeholder="e.g. Umar"/>
-        </div>
+        <div class="form-group"><label for="fname">First Name *</label><input type="text" id="fname" placeholder="e.g. Aisha"/></div>
+        <div class="form-group"><label for="lname">Last Name *</label><input type="text" id="lname" placeholder="e.g. Umar"/></div>
       </div>
       <div class="form-row full">
-        <div class="form-group">
-          <label for="email">Email Address *</label>
-          <input type="email" id="email" placeholder="you@example.com"/>
-        </div>
+        <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" placeholder="you@example.com"/></div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label for="country">Country</label>
-          <input type="text" id="country" placeholder="e.g. Nigeria"/>
-        </div>
-        <div class="form-group">
-          <label for="profession">Profession / Industry</label>
-          <input type="text" id="profession" placeholder="e.g. Marketing Manager"/>
-        </div>
+        <div class="form-group"><label for="country">Country</label><input type="text" id="country" placeholder="e.g. Nigeria"/></div>
+        <div class="form-group"><label for="profession">Profession / Industry</label><input type="text" id="profession" placeholder="e.g. Marketing Manager"/></div>
       </div>
       <div class="form-row full">
         <div class="form-group">
@@ -605,10 +581,7 @@
         </div>
       </div>
       <div class="form-row full">
-        <div class="form-group">
-          <label for="message">What brings you to WILLNET? (Optional)</label>
-          <textarea id="message" placeholder="Tell us a little about your leadership journey and what you hope to gain from WILLNET..."></textarea>
-        </div>
+        <div class="form-group"><label for="message">What brings you to WILLNET? (Optional)</label><textarea id="message" placeholder="Tell us a little about your leadership journey and what you hope to gain from WILLNET..."></textarea></div>
       </div>
       <div class="form-check">
         <input type="checkbox" id="consent"/>
@@ -627,7 +600,6 @@
       <div class="section-tag center">Membership FAQs</div>
       <h2 class="section-title" style="text-align:center">Common <em>questions</em></h2>
     </div>
-
     <div class="faq-item open reveal">
       <button class="faq-q" aria-expanded="true">
         <span class="faq-q-text">Is the Free Community Membership really free — with no hidden charges?</span>
@@ -635,7 +607,6 @@
       </button>
       <div class="faq-a"><div class="faq-a-inner">Yes, absolutely. The Community Membership is genuinely free — no credit card, no trial period, no hidden fees. You get access to selected events, the WILLNET newsletter and resources, open workshops, and the podcast community. If you choose to upgrade to Leadership Circle at any point, that's entirely your decision.</div></div>
     </div>
-
     <div class="faq-item reveal">
       <button class="faq-q" aria-expanded="false">
         <span class="faq-q-text">What does the Leadership Circle cost and how do I find out pricing?</span>
@@ -643,7 +614,6 @@
       </button>
       <div class="faq-a"><div class="faq-a-inner">Leadership Circle pricing is shared after you submit your application, so we can ensure the right fit and discuss any flexible payment options. We're committed to keeping WILLNET accessible — if pricing is a concern, please mention it in your application or reach out directly and we'll do our best to find a path that works for you.</div></div>
     </div>
-
     <div class="faq-item reveal">
       <button class="faq-q" aria-expanded="false">
         <span class="faq-q-text">Can I upgrade from the Free Membership to Leadership Circle later?</span>
@@ -651,7 +621,6 @@
       </button>
       <div class="faq-a"><div class="faq-a-inner">Absolutely. Many of our Leadership Circle members started as Community Members. When you're ready to commit to deeper growth, you can upgrade at any time by reaching out to the WILLNET team. There's no penalty or wait — we make the transition simple.</div></div>
     </div>
-
     <div class="faq-item reveal">
       <button class="faq-q" aria-expanded="false">
         <span class="faq-q-text">I want to enrol my daughter in Girls Corner — what do I need to do?</span>
@@ -659,7 +628,6 @@
       </button>
       <div class="faq-a"><div class="faq-a-inner">Submit the application above selecting "Girls Corner" as the tier, and provide your daughter's age and a brief note about her interests. For girls under 16, a parent or guardian must complete the application. We'll be in touch with next steps including upcoming intake dates and any relevant details about the programme.</div></div>
     </div>
-
     <div class="faq-item reveal">
       <button class="faq-q" aria-expanded="false">
         <span class="faq-q-text">Is WILLNET only for women in certain industries or career stages?</span>
@@ -667,7 +635,6 @@
       </button>
       <div class="faq-a"><div class="faq-a-inner">Not at all. WILLNET is designed for women across industries, career stages, and backgrounds. Whether you're in corporate, entrepreneurship, nonprofit, education, the arts, or anywhere else — if you're committed to growing as a leader, you belong here. Diversity of perspective and experience actually makes the community stronger.</div></div>
     </div>
-
     <div class="faq-item reveal">
       <button class="faq-q" aria-expanded="false">
         <span class="faq-q-text">Is WILLNET available to women outside Nigeria?</span>
@@ -675,7 +642,6 @@
       </button>
       <div class="faq-a"><div class="faq-a-inner">Yes. WILLNET is building towards a global community. Most Learning Sessions and Mentorship Circles run online, making them accessible to women anywhere in the world. In-person events are currently hosted in select locations but are expanding. Women from any country are welcome to apply.</div></div>
     </div>
-
   </div>
 </section>
 
@@ -683,7 +649,7 @@
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <div class="logo">W<span style="color:var(--rose)">ILL</span><span>NET</span></div>
+      <div class="logo">W<span class="ill">ILL</span><span class="net">NET</span></div>
       <div class="tagline">Learn. Lead. Make Impact.</div>
       <p>A leadership and learning community for women who want to grow with clarity, confidence, and purpose.</p>
     </div>
@@ -693,6 +659,7 @@
       <li><a href="program.html">Programs</a></li>
       <li><a href="member.html">Membership</a></li>
       <li><a href="podcast.html">Podcast</a></li>
+      <li><a href="founder.html">Founder</a></li>
     </ul></div>
     <div class="footer-col"><h4>Membership</h4><ul>
       <li><a href="#join-form">Community (Free)</a></li>
