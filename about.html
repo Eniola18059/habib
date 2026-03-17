@@ -332,7 +332,7 @@
 </head>
 <body>
 
-<!-- MOBILE MENU -->
+<!-- MOBILE MENU — consistent with all other pages -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Site navigation">
   <ul>
     <li><a href="index.html" class="mlink">Home</a></li>
@@ -340,13 +340,17 @@
     <li><a href="program.html" class="mlink">Programs</a></li>
     <li><a href="member.html" class="mlink">Membership</a></li>
     <li><a href="podcast.html" class="mlink">Podcast</a></li>
+    <li><a href="founder.html" class="mlink">Founder</a></li>
   </ul>
+  <div class="mobile-cta-wrap">
+    <a href="member.html" class="mlink" style="background:var(--rose);color:var(--white);padding:1rem 2.5rem;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;display:inline-block;border-radius:2px;">Join the Community</a>
+  </div>
   <div class="mobile-socials">
     <span>Instagram</span><span>LinkedIn</span><span>Spotify</span>
   </div>
 </div>
 
-<!-- NAV -->
+<!-- NAV — consistent: Home · About · Programs · Membership · Podcast · Founder · Contact · Join Now -->
 <nav id="navbar">
   <a href="index.html" class="nav-logo">W<span class="ill">ILL</span><span class="net">NET</span></a>
   <ul class="nav-links">
@@ -355,6 +359,8 @@
     <li><a href="program.html">Programs</a></li>
     <li><a href="member.html">Membership</a></li>
     <li><a href="podcast.html">Podcast</a></li>
+    <li><a href="founder.html">Founder</a></li>
+    <li><a href="contact.html">Contact</a></li>
     <li><a href="member.html" class="nav-cta">Join Now</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileMenu">
@@ -401,7 +407,7 @@
       </div>
       <div class="story-visual reveal-right">
         <div class="story-img-wrap">
-          <img src="aisha-umar.jpg" alt="Aisha Umar, Founder of WILLNET" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=800&q=82&fit=crop&crop=focalpoint&fp-y=0.2'"/>
+          <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=800&q=82&fit=crop&crop=focalpoint&fp-y=0.2" alt="Aisha Umar, Founder of WILLNET"/>
           <div class="story-img-caption">
             <h3>Founded with Purpose</h3>
             <p>Building the infrastructure women deserve</p>
@@ -504,7 +510,11 @@
     <div class="founder-layout">
       <div class="founder-portrait-wrap reveal-left">
         <div class="founder-portrait">
-          <img src="IMG_8475.JPG.jpeg" alt="Aisha Umar, Founder of WILLNET" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=800&q=82&fit=crop&crop=focalpoint&fp-y=0.2'"/>
+          <img
+            src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=82&fit=crop&crop=focalpoint&fp-y=0.25"
+            alt="Aisha Umar, Founder of WILLNET"
+            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=800&q=82&fit=crop&crop=focalpoint&fp-y=0.2'"
+          />
           <div class="founder-overlay">
             <div class="f-name">Aisha Umar</div>
             <div class="f-title">Founder &amp; Executive Director, WILLNET</div>
@@ -640,21 +650,24 @@
       <p>A leadership and learning community for women who want to grow with clarity, confidence, and purpose.</p>
     </div>
     <div class="footer-col"><h4>Navigate</h4><ul>
-      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
-      <li><a href="program.html">Programs</a></li><li><a href="member.html">Membership</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="program.html">Programs</a></li>
+      <li><a href="member.html">Membership</a></li>
       <li><a href="podcast.html">Podcast</a></li>
+      <li><a href="founder.html">Founder</a></li>
     </ul></div>
     <div class="footer-col"><h4>Get Involved</h4><ul>
       <li><a href="member.html">Become a Member</a></li>
       <li><a href="program.html">Attend an Event</a></li>
       <li><a href="founder.html">Meet the Founder</a></li>
-      <li><a href="/cdn-cgi/l/email-protection#83f3e2f1f7ede6f1f0ebeaf3f0c3f4eaefefede6f7adecf1e4">Partner With Us</a></li>
+      <li><a href="mailto:partnerships@willnet.org">Partner With Us</a></li>
     </ul></div>
-    <div class="footer-col"><h4>Stay Connected</h4><ul>
-      <li><a href="podcast.html">Listen to Podcast</a></li>
+    <div class="footer-col"><h4>Contact</h4><ul>
       <li><a href="contact.html">Contact Us</a></li>
-      <li><a href="/cdn-cgi/l/email-protection#51213023253f342322393821221126383d3d3f34257f3e2336">Sponsor Programs</a></li>
-      <li><a href="founder.html">Founder's Story</a></li>
+      <li><a href="podcast.html">Listen to Podcast</a></li>
+      <li><a href="mailto:partnerships@willnet.org">Sponsor Programs</a></li>
+      <li><a href="mailto:hello@willnet.org">hello@willnet.org</a></li>
     </ul></div>
   </div>
   <div class="footer-bottom">
@@ -662,8 +675,8 @@
     <p>Designed with <span>♥</span> for women who lead.</p>
   </div>
 </footer>
+
 <script>
-/* PARTICLES */
 (()=>{
   const c=document.getElementById('particles');
   const n=window.innerWidth<600?8:18;
@@ -674,8 +687,6 @@
     c.appendChild(p);
   }
 })();
-
-/* HAMBURGER */
 const ham=document.getElementById('hamburger');
 const menu=document.getElementById('mobileMenu');
 const openM=()=>{ham.classList.add('active');ham.setAttribute('aria-expanded','true');menu.classList.add('open');document.body.classList.add('menu-open')};
@@ -684,15 +695,9 @@ ham.addEventListener('click',()=>menu.classList.contains('open')?closeM():openM(
 document.querySelectorAll('.mlink').forEach(a=>a.addEventListener('click',closeM));
 menu.addEventListener('click',e=>{if(e.target===menu)closeM()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
-
-/* NAV SCROLL */
 window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',scrollY>60)},{passive:true});
-
-/* REVEAL */
 const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-up').forEach(el=>ro.observe(el));
-
-/* COUNTERS */
 function countUp(el){
   const t=+el.dataset.count,s=el.dataset.suffix||'';
   if(!t)return;let st=null;const d=1600;
