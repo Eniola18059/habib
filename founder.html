@@ -14,29 +14,23 @@
       --mint-pale:#e8f6f1;
       --mint-deep:#7abfaa;
       --soft-sage:#8FFBB1;
-
       --rose:#D889AA;
       --rose-light:#e8a8c2;
       --rose-pale:#f5dde8;
       --mauve:#B77C8E;
       --mauve-deep:#8a5568;
-
       --cream:#F6F5F1;
       --cream-warm:#faf8f4;
       --white:#ffffff;
-
       --charcoal:#2B2B2B;
       --text-dark:#2B2B2B;
       --text-mid:#4a4a4a;
       --text-muted:#7a7a7a;
-
       --dark-bg:#1a2e2a;
       --dark-mid:#243b35;
       --dark-light:#2e4d44;
-
       --border:rgba(169,216,200,.25);
       --border-rose:rgba(216,137,170,.2);
-
       --nav-h:76px;
       --ease:cubic-bezier(.16,1,.3,1);
     }
@@ -44,15 +38,17 @@
     html{scroll-behavior:smooth}
     body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden}
 
-    /* ══ NAV ══ */
+    /* NAV */
     nav{position:fixed;top:0;left:0;right:0;z-index:500;height:var(--nav-h);padding:0 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(26,46,42,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(169,216,200,.15);transition:background .4s}
     nav.scrolled{background:rgba(26,46,42,.98)}
     .nav-logo{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,3vw,1.6rem);font-weight:600;color:var(--white);letter-spacing:.15em;text-decoration:none;z-index:601}
-    .nav-logo span{color:var(--mint)}
+    .nav-logo .ill{color:var(--rose)}
+    .nav-logo .net{color:var(--mint)}
     .nav-links{display:flex;align-items:center;gap:2.5rem;list-style:none}
     .nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;transition:color .3s;position:relative}
     .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--mint);transition:width .3s}
     .nav-links a:hover{color:var(--mint-light)}.nav-links a:hover::after{width:100%}
+    .nav-links a.active{color:var(--mint-light)}.nav-links a.active::after{width:100%}
     .nav-cta{background:transparent!important;border:1px solid var(--mint)!important;color:var(--mint)!important;padding:.5rem 1.3rem;border-radius:2px;transition:background .3s,color .3s!important}
     .nav-cta::after{display:none!important}.nav-cta:hover{background:var(--mint)!important;color:var(--dark-bg)!important}
     .hamburger{display:none;flex-direction:column;justify-content:space-between;width:28px;height:20px;cursor:pointer;z-index:601;background:none;border:none;padding:0}
@@ -70,7 +66,6 @@
     .mobile-menu.open ul li:nth-child(4){opacity:1;transform:none;transition-delay:.26s}
     .mobile-menu.open ul li:nth-child(5){opacity:1;transform:none;transition-delay:.32s}
     .mobile-menu.open ul li:nth-child(6){opacity:1;transform:none;transition-delay:.38s}
-    .mobile-menu.open ul li:nth-child(7){opacity:1;transform:none;transition-delay:.44s}
     .mobile-menu ul li a{display:block;padding:.75rem 2rem;font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,6vw,2.6rem);font-weight:300;color:rgba(255,255,255,.8);text-decoration:none;letter-spacing:.06em;transition:color .3s}
     .mobile-menu ul li a:hover{color:var(--mint-light)}
     .mobile-cta-wrap{margin-top:2rem;opacity:0;transform:translateY(20px);transition:opacity .4s .42s,transform .4s .42s}
@@ -81,16 +76,16 @@
     .mobile-socials span:hover{color:var(--mint)}
     body.menu-open{overflow:hidden}
 
+    /* HERO */
     .hero{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:flex-end;background:var(--dark-bg)}
-    .hero-photo{position:absolute;inset:0;background-image:url('aisha-umar.jpg');background-size:cover;background-position:center 15%;background-repeat:no-repeat}
-    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(26,46,42,1) 0%, rgba(26,46,42,.82) 25%, rgba(26,46,42,.28) 55%, rgba(26,46,42,.05) 100%),linear-gradient(to right, rgba(26,46,42,.5) 0%, transparent 60%)}
+    .hero-photo{position:absolute;inset:0}
+    .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,46,42,1) 0%,rgba(26,46,42,.82) 25%,rgba(26,46,42,.28) 55%,rgba(26,46,42,.05) 100%),linear-gradient(to right,rgba(26,46,42,.5) 0%,transparent 60%)}
     .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(169,216,200,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(169,216,200,.04) 1px,transparent 1px);background-size:60px 60px}
     .particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
     .particle{position:absolute;border-radius:50%;animation:particleRise linear infinite}
-    .particle.mint{background:rgba(169,216,200,.15)}
-    .particle.rose{background:rgba(216,137,170,.1)}
+    .particle.mint{background:rgba(169,216,200,.15)}.particle.rose{background:rgba(216,137,170,.1)}
     @keyframes particleRise{0%{transform:translateY(100%) scale(0);opacity:0}10%{opacity:1}90%{opacity:.3}100%{transform:translateY(-20%) scale(1.2);opacity:0}}
-
     .hero-content{position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:calc(var(--nav-h) + 2rem) 5% clamp(4rem,7vw,6rem)}
     .breadcrumb{display:flex;align-items:center;gap:.5rem;margin-bottom:2.5rem;opacity:0;animation:fadeUp .6s var(--ease) .2s forwards}
     .breadcrumb a{font-size:.72rem;color:rgba(255,255,255,.35);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:color .3s}
@@ -114,6 +109,7 @@
     @keyframes scrollAnim{0%{left:-100%}50%{left:100%}100%{left:100%}}
     @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 
+    /* INTRO */
     .intro-section{background:var(--dark-bg);padding:clamp(4rem,7vw,6rem) 5%;position:relative;overflow:hidden}
     .intro-section::before{content:'';position:absolute;top:-200px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(169,216,200,.06),transparent 70%);pointer-events:none}
     .intro-section::after{content:'';position:absolute;bottom:-150px;left:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(216,137,170,.05),transparent 70%);pointer-events:none}
@@ -124,6 +120,7 @@
     .intro-attr::before{content:'— '}
     .intro-deco{font-family:'Cormorant Garamond',serif;font-size:14rem;color:rgba(169,216,200,.04);line-height:1;position:absolute;top:-2rem;left:50%;transform:translateX(-50%);pointer-events:none;user-select:none}
 
+    /* STORY */
     .story-section{background:var(--cream);padding:clamp(5rem,9vw,8rem) 5%}
     .story-inner{max-width:1200px;margin:0 auto}
     .chapter{display:flex;align-items:center;gap:1.5rem;margin-bottom:3rem}
@@ -145,7 +142,9 @@
     .spi-accent{position:absolute;top:-12px;left:-12px;width:60px;height:60px;background:var(--mint);border-radius:6px;z-index:-1;opacity:.6}
     .spi-ring{position:absolute;bottom:-12px;right:-12px;width:44px;height:44px;border:2px solid var(--rose);border-radius:6px;z-index:-1}
 
+    /* PHILOSOPHY */
     .philosophy-section{background:var(--dark-bg);padding:clamp(5rem,9vw,8rem) 5%;position:relative;overflow:hidden}
+    .philosophy-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1400&q=40&fit=crop');background-size:cover;background-position:center;opacity:.04;pointer-events:none}
     .philosophy-section::after{content:'';position:absolute;bottom:-150px;left:-150px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(216,137,170,.06),transparent 70%);pointer-events:none}
     .philosophy-section::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(169,216,200,.05),transparent 70%);pointer-events:none}
     .philosophy-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
@@ -164,6 +163,7 @@
     .phil-text{font-size:.87rem;color:rgba(255,255,255,.45);line-height:1.8}
     .phil-text strong{color:rgba(255,255,255,.7);font-weight:600}
 
+    /* CREATION */
     .creation-section{background:var(--white);padding:clamp(5rem,9vw,8rem) 5%}
     .creation-inner{max-width:1200px;margin:0 auto}
     .creation-grid{display:grid;grid-template-columns:1fr 480px;gap:5rem;align-items:center}
@@ -180,6 +180,7 @@
     .ct-text h4{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--text-dark);margin-bottom:.3rem}
     .ct-text p{font-size:.82rem;color:var(--text-muted);line-height:1.65}
 
+    /* APPROACH */
     .approach-section{background:var(--cream);padding:clamp(4rem,8vw,7rem) 5%}
     .approach-inner{max-width:1200px;margin:0 auto}
     .approach-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:4rem}
@@ -196,12 +197,14 @@
     .pillar-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--text-dark);margin-bottom:.7rem}
     .pillar-text{font-size:.87rem;color:var(--text-muted);line-height:1.75}
 
+    /* QUOTE BREAK */
     .quote-break{background:var(--mint);padding:clamp(4rem,7vw,6rem) 5%;position:relative;overflow:hidden;text-align:center}
     .quote-break::before{content:'\201C';position:absolute;top:-3rem;left:50%;transform:translateX(-50%);font-family:'Cormorant Garamond',serif;font-size:20rem;color:rgba(26,46,42,.06);line-height:1;pointer-events:none}
     .qb-inner{max-width:800px;margin:0 auto;position:relative;z-index:1}
     .qb-text{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:400;font-style:italic;color:var(--dark-bg);line-height:1.4;margin-bottom:1.5rem}
     .qb-attr{font-size:.78rem;color:rgba(26,46,42,.5);letter-spacing:.2em;text-transform:uppercase}
 
+    /* CONNECT */
     .connect-section{background:var(--dark-bg);padding:clamp(5rem,9vw,8rem) 5%;position:relative;overflow:hidden}
     .connect-section::before{content:'';position:absolute;top:-150px;right:-150px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(169,216,200,.07),transparent 70%);pointer-events:none}
     .connect-section::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(216,137,170,.05),transparent 70%);pointer-events:none}
@@ -217,7 +220,7 @@
     .cl-value{font-size:.92rem;color:var(--white);font-weight:500}
     .connect-right{text-align:center}
     .connect-portrait{width:220px;height:220px;border-radius:50%;overflow:hidden;margin:0 auto 2rem;border:3px solid rgba(169,216,200,.25);position:relative;display:inline-block}
-    .connect-portrait img{width:100%;height:100%;object-fit:cover;object-position:center top}
+    .connect-portrait img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:50%}
     .connect-portrait-ring{position:absolute;inset:-12px;border-radius:50%;border:1px dashed rgba(216,137,170,.25);animation:spinSlow 25s linear infinite}
     @keyframes spinSlow{to{transform:rotate(360deg)}}
     .connect-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--white);margin-bottom:.3rem}
@@ -226,19 +229,20 @@
     .social-btn{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);font-size:.78rem;font-weight:700;cursor:pointer;transition:background .3s,border-color .3s,color .3s;text-decoration:none}
     .social-btn:hover{background:var(--mint);border-color:var(--mint);color:var(--dark-bg)}
 
+    /* BUTTONS */
     .btn-primary{background:var(--mint);color:var(--dark-bg);border:none;padding:.9rem 2.2rem;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;border-radius:2px;position:relative;overflow:hidden;transition:background .3s,transform .25s,box-shadow .3s}
     .btn-primary::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.2);transform:translateX(-110%) skewX(-20deg);transition:transform .5s}
     .btn-primary:hover::before{transform:translateX(110%) skewX(-20deg)}
     .btn-primary:hover{background:var(--mint-light);transform:translateY(-2px);box-shadow:0 8px 30px rgba(169,216,200,.35)}
     .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.75);padding:.9rem 2.2rem;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;border-radius:2px;transition:border-color .3s,color .3s,transform .25s}
     .btn-ghost:hover{border-color:var(--mint);color:var(--mint-light);transform:translateY(-2px)}
-    .btn-rose{background:var(--rose);color:var(--white);border:none;padding:.9rem 2.2rem;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;border-radius:2px;transition:background .3s,transform .25s}
-    .btn-rose:hover{background:var(--rose-light);transform:translateY(-2px)}
 
+    /* FOOTER */
     footer{background:#111e1b;padding:clamp(3rem,6vw,4rem) 5% 2rem}
     .footer-top{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.05)}
     .footer-brand .logo{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--white);letter-spacing:.15em;margin-bottom:.3rem}
-    .footer-brand .logo span{color:var(--mint)}
+    .footer-brand .logo .ill{color:var(--rose)}
+    .footer-brand .logo .net{color:var(--mint)}
     .footer-brand .tagline{font-size:.75rem;color:rgba(255,255,255,.3);letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.2rem}
     .footer-brand p{font-size:.85rem;color:rgba(255,255,255,.3);line-height:1.75;max-width:280px}
     .footer-col h4{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mint);font-weight:600;margin-bottom:1.2rem}
@@ -249,6 +253,7 @@
     .footer-bottom p{font-size:.78rem;color:rgba(255,255,255,.2)}
     .footer-bottom p span{color:var(--rose)}
 
+    /* REVEAL */
     .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
     .reveal.visible{opacity:1;transform:translateY(0)}
     .reveal-left{opacity:0;transform:translateX(-32px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
@@ -272,10 +277,9 @@
     <li><a href="member.html" class="mlink">Membership</a></li>
     <li><a href="podcast.html" class="mlink">Podcast</a></li>
     <li><a href="founder.html" class="mlink">Founder</a></li>
-    <li><a href="gallery.html" class="mlink">Gallery</a></li>
   </ul>
   <div class="mobile-cta-wrap">
-    <a href="contact.html" class="mlink" style="background:var(--rose);color:var(--white);padding:1rem 2.5rem;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;display:inline-block;border-radius:2px;">Join the Community</a>
+    <a href="member.html" class="mlink" style="background:var(--rose);color:var(--white);padding:1rem 2.5rem;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;display:inline-block;border-radius:2px;">Join the Community</a>
   </div>
   <div class="mobile-socials">
     <span>Instagram</span><span>LinkedIn</span><span>Spotify</span>
@@ -284,7 +288,7 @@
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="index.html" class="nav-logo">W<span style="color:var(--rose)">ILL</span><span>NET</span></a>
+  <a href="index.html" class="nav-logo">W<span class="ill">ILL</span><span class="net">NET</span></a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
@@ -292,7 +296,6 @@
     <li><a href="member.html">Membership</a></li>
     <li><a href="podcast.html">Podcast</a></li>
     <li><a href="founder.html" class="active">Founder</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
     <li><a href="contact.html" class="nav-cta">Join Now</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileMenu">
@@ -300,64 +303,46 @@
   </button>
 </nav>
 
-<!-- ══ HERO ══ -->
+<!-- HERO — full bleed portrait -->
 <section class="hero">
-  <div class="hero-photo"></div>
+  <div class="hero-photo">
+    <img
+      src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=1600&q=85&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.2"
+      alt="Aisha Umar, Founder of WILLNET"
+      onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1600&q=85&fit=crop&crop=focalpoint&fp-y=0.25'"
+    />
+  </div>
   <div class="hero-overlay"></div>
   <div class="hero-grid"></div>
   <div class="particles" id="particles"></div>
-
   <div class="hero-content">
     <div class="breadcrumb">
-      <a href="index.html">Home</a>
-      <span>/</span>
-      <a href="about.html">About</a>
-      <span>/</span>
+      <a href="index.html">Home</a><span>/</span>
+      <a href="about.html">About</a><span>/</span>
       <span class="current">The Founder</span>
     </div>
     <div class="hero-eyebrow">Founder & Executive Director</div>
-    <h1 class="hero-name">
-      Aisha
-      <span class="surname">Umar</span>
-    </h1>
+    <h1 class="hero-name">Aisha<span class="surname">Umar</span></h1>
     <p class="hero-role"><strong>Leader · Strategist · Community Builder</strong> &nbsp;·&nbsp; Founder of WILLNET</p>
   </div>
-
   <div class="hero-stat-bar">
-    <div class="h-stat">
-      <div class="h-stat-num">10+</div>
-      <div class="h-stat-label">Years Experience</div>
-    </div>
-    <div class="h-stat">
-      <div class="h-stat-num">3</div>
-      <div class="h-stat-label">Core Programs</div>
-    </div>
-    <div class="h-stat">
-      <div class="h-stat-num">∞</div>
-      <div class="h-stat-label">Impact Created</div>
-    </div>
+    <div class="h-stat"><div class="h-stat-num">10+</div><div class="h-stat-label">Years Experience</div></div>
+    <div class="h-stat"><div class="h-stat-num">3</div><div class="h-stat-label">Core Programs</div></div>
+    <div class="h-stat"><div class="h-stat-num">∞</div><div class="h-stat-label">Impact Created</div></div>
   </div>
-
-  <div class="scroll-hint">
-    <div class="scroll-line"></div>
-    <span>Scroll to read her story</span>
-  </div>
+  <div class="scroll-hint"><div class="scroll-line"></div><span>Scroll to read her story</span></div>
 </section>
 
-<!-- ══ INTRO QUOTE ══ -->
+<!-- INTRO QUOTE -->
 <section class="intro-section">
   <div class="intro-inner reveal">
     <div class="intro-deco">"</div>
-    <p class="intro-quote">
-      "Leadership is not limited to titles —<br>
-      it is about <em>influence, growth,</em><br>
-      and the courage to step forward."
-    </p>
+    <p class="intro-quote">"Leadership is not limited to titles —<br>it is about <em>influence, growth,</em><br>and the courage to step forward."</p>
     <span class="intro-attr">Aisha Umar, Founder of WILLNET</span>
   </div>
 </section>
 
-<!-- ══ CHAPTER 1 — HER STORY ══ -->
+<!-- CHAPTER 1 — HER STORY -->
 <section class="story-section">
   <div class="story-inner">
     <div class="chapter reveal">
@@ -379,7 +364,12 @@
       </div>
       <div class="story-col reveal-right">
         <div class="story-photo-inset">
-          <img src="aisha-umar.jpg" alt="Aisha Umar" class="spi-img"/>
+          <img
+            src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=82&fit=crop&crop=focalpoint&fp-y=0.25"
+            alt="Aisha Umar — Founder of WILLNET"
+            class="spi-img"
+            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=800&q=82&fit=crop&crop=focalpoint&fp-y=0.2'"
+          />
           <div class="spi-caption">
             <div class="spi-caption-title">Aisha Umar</div>
             <div class="spi-caption-sub">Founder & Executive Director · WILLNET</div>
@@ -394,8 +384,9 @@
   </div>
 </section>
 
-<!-- ══ PHILOSOPHY ══ -->
+<!-- PHILOSOPHY -->
 <section class="philosophy-section">
+  <div class="philosophy-bg"></div>
   <div class="philosophy-inner">
     <div class="reveal">
       <div class="section-tag">What She Believes</div>
@@ -431,7 +422,7 @@
   </div>
 </section>
 
-<!-- ══ CHAPTER 2 — CREATION OF WILLNET ══ -->
+<!-- CHAPTER 2 — CREATION OF WILLNET -->
 <section class="creation-section">
   <div class="creation-inner">
     <div class="chapter reveal">
@@ -449,52 +440,17 @@
         <p>WILLNET is that system. Built from the ground up to provide what had been missing: practical learning, real mentorship, and the kind of community that makes growth feel supported instead of overwhelming.</p>
       </div>
       <div class="creation-timeline reveal-right">
-        <div class="ct-item">
-          <div class="ct-dot"></div>
-          <div class="ct-text">
-            <div class="ct-year">The Observation</div>
-            <h4>Seeing the gap clearly</h4>
-            <p>After years of working in leadership development, Aisha notices a consistent pattern — brilliant women, insufficient infrastructure. The idea for WILLNET begins to form.</p>
-          </div>
-        </div>
-        <div class="ct-item">
-          <div class="ct-dot"></div>
-          <div class="ct-text">
-            <div class="ct-year">The Decision</div>
-            <h4>Choosing to build instead of wait</h4>
-            <p>Rather than waiting for institutional change, Aisha decides to build the community and programs herself — grounded in her expertise and driven by a clear sense of purpose.</p>
-          </div>
-        </div>
-        <div class="ct-item">
-          <div class="ct-dot"></div>
-          <div class="ct-text">
-            <div class="ct-year">The Foundation</div>
-            <h4>WILLNET launches its first programs</h4>
-            <p>The first community gatherings, early mentorship circles, and Learning Sessions bring women together. The response confirms what Aisha suspected — the need was real and the hunger was enormous.</p>
-          </div>
-        </div>
-        <div class="ct-item">
-          <div class="ct-dot"></div>
-          <div class="ct-text">
-            <div class="ct-year">Girls Corner & Podcast</div>
-            <h4>Expanding the vision</h4>
-            <p>WILLNET extends its reach to teenage girls through Girls Corner and to global audiences through the WILLNET Podcast — taking the mission beyond geography.</p>
-          </div>
-        </div>
-        <div class="ct-item">
-          <div class="ct-dot"></div>
-          <div class="ct-text">
-            <div class="ct-year">Now</div>
-            <h4>Building toward global impact</h4>
-            <p>WILLNET continues to grow — with a clear roadmap toward conferences, fellowships, and a global network of women leaders who carry the mission forward.</p>
-          </div>
-        </div>
+        <div class="ct-item"><div class="ct-dot"></div><div class="ct-text"><div class="ct-year">The Observation</div><h4>Seeing the gap clearly</h4><p>After years of working in leadership development, Aisha notices a consistent pattern — brilliant women, insufficient infrastructure. The idea for WILLNET begins to form.</p></div></div>
+        <div class="ct-item"><div class="ct-dot"></div><div class="ct-text"><div class="ct-year">The Decision</div><h4>Choosing to build instead of wait</h4><p>Rather than waiting for institutional change, Aisha decides to build the community and programs herself — grounded in her expertise and driven by a clear sense of purpose.</p></div></div>
+        <div class="ct-item"><div class="ct-dot"></div><div class="ct-text"><div class="ct-year">The Foundation</div><h4>WILLNET launches its first programs</h4><p>The first community gatherings, early mentorship circles, and Learning Sessions bring women together. The response confirms what Aisha suspected — the need was real and the hunger was enormous.</p></div></div>
+        <div class="ct-item"><div class="ct-dot"></div><div class="ct-text"><div class="ct-year">Girls Corner & Podcast</div><h4>Expanding the vision</h4><p>WILLNET extends its reach to teenage girls through Girls Corner and to global audiences through the WILLNET Podcast — taking the mission beyond geography.</p></div></div>
+        <div class="ct-item"><div class="ct-dot"></div><div class="ct-text"><div class="ct-year">Now</div><h4>Building toward global impact</h4><p>WILLNET continues to grow — with a clear roadmap toward conferences, fellowships, and a global network of women leaders who carry the mission forward.</p></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ APPROACH / PILLARS ══ -->
+<!-- APPROACH / PILLARS -->
 <section class="approach-section">
   <div class="approach-inner">
     <div class="approach-header">
@@ -508,20 +464,17 @@
     </div>
     <div class="pillars">
       <div class="pillar reveal" style="transition-delay:.05s">
-        <div class="pillar-num">01</div>
-        <div class="pillar-icon">🛠️</div>
+        <div class="pillar-num">01</div><div class="pillar-icon">🛠️</div>
         <div class="pillar-title">Practical Over Theoretical</div>
         <div class="pillar-text">Every session, circle, and programme is built around tools women can use immediately. Not abstract frameworks or distant ideals — but skills, habits, and mindsets they can apply the same week.</div>
       </div>
       <div class="pillar reveal" style="transition-delay:.15s">
-        <div class="pillar-num">02</div>
-        <div class="pillar-icon">🔗</div>
+        <div class="pillar-num">02</div><div class="pillar-icon">🔗</div>
         <div class="pillar-title">Community as Infrastructure</div>
         <div class="pillar-text">Aisha treats community not as a nice-to-have but as the delivery mechanism for growth. The relationships formed in WILLNET circles and events are themselves the curriculum — learning happens between people, not just in front of them.</div>
       </div>
       <div class="pillar reveal" style="transition-delay:.25s">
-        <div class="pillar-num">03</div>
-        <div class="pillar-icon">📐</div>
+        <div class="pillar-num">03</div><div class="pillar-icon">📐</div>
         <div class="pillar-title">Design with Intention</div>
         <div class="pillar-text">Nothing at WILLNET is accidental. Every element — from the structure of a mentorship circle to the questions asked at a community event — is deliberately designed to create the conditions for real growth. This is program design as an act of care.</div>
       </div>
@@ -529,7 +482,7 @@
   </div>
 </section>
 
-<!-- ══ QUOTE BREAK ══ -->
+<!-- QUOTE BREAK -->
 <div class="quote-break reveal">
   <div class="qb-inner">
     <p class="qb-text">"Every woman who steps into confident leadership creates permission for the next one to follow. That multiplication — that is the real goal."</p>
@@ -537,7 +490,7 @@
   </div>
 </div>
 
-<!-- ══ CONNECT ══ -->
+<!-- CONNECT -->
 <section class="connect-section">
   <div class="connect-inner">
     <div class="connect-grid">
@@ -546,22 +499,10 @@
         <h2 class="section-title light">Connect with <em>Aisha</em></h2>
         <p>Aisha is open to meaningful conversations about women's leadership development, partnerships, media engagements, and speaking opportunities. Reach out through WILLNET's official channels.</p>
         <div class="connect-links">
-          <a href="mailto:hello@willnet.org" class="connect-link">
-            <span class="cl-icon">✉️</span>
-            <div><div class="cl-label">General Enquiries</div><div class="cl-value">hello@willnet.org</div></div>
-          </a>
-          <a href="mailto:partnerships@willnet.org" class="connect-link">
-            <span class="cl-icon">🤝</span>
-            <div><div class="cl-label">Partnerships & Collaborations</div><div class="cl-value">partnerships@willnet.org</div></div>
-          </a>
-          <a href="mailto:media@willnet.org" class="connect-link">
-            <span class="cl-icon">🎙️</span>
-            <div><div class="cl-label">Media, Press & Speaking</div><div class="cl-value">media@willnet.org</div></div>
-          </a>
-          <a href="mailto:podcast@willnet.org" class="connect-link">
-            <span class="cl-icon">🎧</span>
-            <div><div class="cl-label">Podcast Guest Enquiries</div><div class="cl-value">podcast@willnet.org</div></div>
-          </a>
+          <a href="mailto:hello@willnet.org" class="connect-link"><span class="cl-icon">✉️</span><div><div class="cl-label">General Enquiries</div><div class="cl-value">hello@willnet.org</div></div></a>
+          <a href="mailto:partnerships@willnet.org" class="connect-link"><span class="cl-icon">🤝</span><div><div class="cl-label">Partnerships & Collaborations</div><div class="cl-value">partnerships@willnet.org</div></div></a>
+          <a href="mailto:media@willnet.org" class="connect-link"><span class="cl-icon">🎙️</span><div><div class="cl-label">Media, Press & Speaking</div><div class="cl-value">media@willnet.org</div></div></a>
+          <a href="mailto:podcast@willnet.org" class="connect-link"><span class="cl-icon">🎧</span><div><div class="cl-label">Podcast Guest Enquiries</div><div class="cl-value">podcast@willnet.org</div></div></a>
         </div>
         <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem">
           <a href="contact.html" class="btn-primary">Send a Message</a>
@@ -572,7 +513,11 @@
         <div style="position:relative;display:inline-block">
           <div class="connect-portrait-ring"></div>
           <div class="connect-portrait">
-            <img src="aisha-umar.jpg" alt="Aisha Umar"/>
+            <img
+              src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=500&q=82&fit=crop&crop=focalpoint&fp-y=0.2"
+              alt="Aisha Umar"
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=500&q=82&fit=crop&crop=focalpoint&fp-y=0.25'"
+            />
           </div>
         </div>
         <div class="connect-name">Aisha Umar</div>
@@ -593,13 +538,30 @@
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <div class="logo">W<span style="color:var(--rose)">ILL</span><span>NET</span></div>
+      <div class="logo">W<span class="ill">ILL</span><span class="net">NET</span></div>
       <div class="tagline">Learn. Lead. Make Impact.</div>
       <p>A leadership and learning community for women who want to grow with clarity, confidence, and purpose.</p>
     </div>
-    <div class="footer-col"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="program.html">Programs</a></li><li><a href="member.html">Membership</a></li><li><a href="podcast.html">Podcast</a></li></ul></div>
-    <div class="footer-col"><h4>The Founder</h4><ul><li><a href="founder.html">Meet Aisha Umar</a></li><li><a href="about.html#founder">About WILLNET</a></li><li><a href="podcast.html">Podcast</a></li><li><a href="mailto:media@willnet.org">Media Enquiries</a></li></ul></div>
-    <div class="footer-col"><h4>Get Involved</h4><ul><li><a href="member.html">Become a Member</a></li><li><a href="program.html">Explore Programs</a></li><li><a href="mailto:partnerships@willnet.org">Partner With Us</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+    <div class="footer-col"><h4>Navigate</h4><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="program.html">Programs</a></li>
+      <li><a href="member.html">Membership</a></li>
+      <li><a href="podcast.html">Podcast</a></li>
+      <li><a href="founder.html">Founder</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>The Founder</h4><ul>
+      <li><a href="founder.html">Meet Aisha Umar</a></li>
+      <li><a href="about.html">About WILLNET</a></li>
+      <li><a href="podcast.html">Podcast</a></li>
+      <li><a href="mailto:media@willnet.org">Media Enquiries</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Get Involved</h4><ul>
+      <li><a href="member.html">Become a Member</a></li>
+      <li><a href="program.html">Explore Programs</a></li>
+      <li><a href="mailto:partnerships@willnet.org">Partner With Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul></div>
   </div>
   <div class="footer-bottom">
     <p>© 2025 <span>WILLNET</span> — Women in Learning &amp; Leadership Network. All rights reserved.</p>
@@ -608,7 +570,6 @@
 </footer>
 
 <script>
-/* PARTICLES — alternating mint and rose */
 (()=>{
   const c=document.getElementById('particles');
   const n=window.innerWidth<600?6:14;
@@ -620,8 +581,6 @@
     c.appendChild(p);
   }
 })();
-
-/* HAMBURGER */
 const ham=document.getElementById('hamburger');
 const mobileMenu=document.getElementById('mobileMenu');
 const openM=()=>{ham.classList.add('active');ham.setAttribute('aria-expanded','true');mobileMenu.classList.add('open');document.body.classList.add('menu-open')};
@@ -630,12 +589,7 @@ ham.addEventListener('click',()=>mobileMenu.classList.contains('open')?closeM():
 document.querySelectorAll('.mlink').forEach(a=>a.addEventListener('click',closeM));
 mobileMenu.addEventListener('click',e=>{if(e.target===mobileMenu)closeM()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
-
-/* NAV scroll */
-const navbar=document.getElementById('navbar');
-window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',scrollY>80)},{passive:true});
-
-/* REVEAL */
+window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',scrollY>80)},{passive:true});
 const ro=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)}});
 },{threshold:.08,rootMargin:'0px 0px -40px 0px'});
