@@ -76,31 +76,98 @@
     .mobile-socials span:hover{color:var(--mint)}
     body.menu-open{overflow:hidden}
 
-    /* PAGE HERO */
-    .page-hero{background:var(--dark-bg);padding:calc(var(--nav-h) + clamp(4rem,8vw,6rem)) 5% clamp(4rem,8vw,5rem);position:relative;overflow:hidden;text-align:center}
-    .page-hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1600&q=80&fit=crop&crop=focalpoint&fp-y=0.35');background-size:cover;background-position:center 35%}
-    .page-hero-tint{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,46,42,.95) 0%,rgba(26,46,42,.85) 60%,rgba(26,46,42,.97) 100%)}
-    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(169,216,200,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(169,216,200,.04) 1px,transparent 1px);background-size:60px 60px;animation:gridMove 20s linear infinite}
+    /* ── PAGE HERO — BRIGHTER ── */
+    .page-hero{
+      background:var(--dark-bg);
+      padding:calc(var(--nav-h) + clamp(4rem,8vw,6rem)) 5% clamp(4rem,8vw,5rem);
+      position:relative;overflow:hidden;text-align:center;
+    }
+    .page-hero-bg{
+      position:absolute;inset:0;
+      background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1600&q=80&fit=crop&crop=focalpoint&fp-y=0.35');
+      background-size:cover;background-position:center 35%;
+      /* brighter: was fully hidden, now clearly visible */
+      filter:saturate(1.15) brightness(1.05);
+    }
+    /* Lighter tint — much more of the photo shows through */
+    .page-hero-tint{
+      position:absolute;inset:0;
+      background:linear-gradient(
+        to bottom,
+        rgba(26,46,42,.62) 0%,
+        rgba(26,46,42,.48) 45%,
+        rgba(26,46,42,.72) 100%
+      );
+    }
+    /* Subtle warm colour wash for vibrancy */
+    .page-hero-wash{
+      position:absolute;inset:0;
+      background:radial-gradient(
+        ellipse 120% 80% at 50% 30%,
+        rgba(169,216,200,.18) 0%,
+        rgba(216,137,170,.10) 55%,
+        transparent 100%
+      );
+      pointer-events:none;
+    }
+    .hero-grid{
+      position:absolute;inset:0;
+      background-image:
+        linear-gradient(rgba(169,216,200,.09) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(169,216,200,.09) 1px,transparent 1px);
+      background-size:60px 60px;
+      animation:gridMove 20s linear infinite;
+    }
     @keyframes gridMove{0%{background-position:0 0}100%{background-position:60px 60px}}
     .particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
     .particle{position:absolute;border-radius:50%;animation:particleRise linear infinite}
-    .particle.mint{background:rgba(169,216,200,.15)}.particle.rose{background:rgba(216,137,170,.1)}
-    @keyframes particleRise{0%{transform:translateY(100%) scale(0);opacity:0}10%{opacity:1}90%{opacity:.3}100%{transform:translateY(-20%) scale(1.2);opacity:0}}
+    /* brighter, more opaque particles */
+    .particle.mint{background:rgba(169,216,200,.35)}
+    .particle.rose{background:rgba(216,137,170,.25)}
+    @keyframes particleRise{
+      0%{transform:translateY(100%) scale(0);opacity:0}
+      10%{opacity:1}90%{opacity:.5}
+      100%{transform:translateY(-20%) scale(1.2);opacity:0}
+    }
     .page-hero-inner{position:relative;z-index:2;max-width:900px;margin:0 auto}
     .breadcrumb{display:flex;align-items:center;gap:.5rem;margin-bottom:2rem;justify-content:center;opacity:0;animation:fadeUp .6s var(--ease) .2s forwards}
-    .breadcrumb a{font-size:.75rem;color:rgba(255,255,255,.4);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:color .3s}
+    .breadcrumb a{font-size:.75rem;color:rgba(255,255,255,.55);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:color .3s}
     .breadcrumb a:hover{color:var(--mint)}
-    .breadcrumb span{font-size:.75rem;color:rgba(255,255,255,.2)}
+    .breadcrumb span{font-size:.75rem;color:rgba(255,255,255,.3)}
     .breadcrumb .current{font-size:.75rem;color:var(--mint);letter-spacing:.1em;text-transform:uppercase}
-    .page-hero-tag{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mint);font-weight:600;margin-bottom:1.2rem;display:flex;align-items:center;justify-content:center;gap:.8rem;opacity:0;animation:fadeUp .6s var(--ease) .3s forwards}
-    .page-hero-tag::before,.page-hero-tag::after{content:'';width:30px;height:1px;background:var(--mint)}
-    .page-hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,6vw,5.5rem);font-weight:300;color:var(--white);line-height:1.1;opacity:0;animation:fadeUp .8s var(--ease) .4s forwards}
-    .page-hero-title em{font-style:italic;color:var(--mint-light)}
-    .page-hero-sub{font-size:clamp(.95rem,1.5vw,1.1rem);line-height:1.85;color:rgba(255,255,255,.55);font-weight:300;margin-top:1.5rem;max-width:640px;margin-left:auto;margin-right:auto;opacity:0;animation:fadeUp .7s var(--ease) .55s forwards}
+    .page-hero-tag{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mint-light);font-weight:600;margin-bottom:1.2rem;display:flex;align-items:center;justify-content:center;gap:.8rem;opacity:0;animation:fadeUp .6s var(--ease) .3s forwards;text-shadow:0 0 20px rgba(169,216,200,.5)}
+    .page-hero-tag::before,.page-hero-tag::after{content:'';width:30px;height:1px;background:var(--mint-light)}
+    /* Brighter title — pure white with glow */
+    .page-hero-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2.8rem,6vw,5.5rem);
+      font-weight:300;
+      color:#ffffff;
+      line-height:1.1;
+      text-shadow:0 2px 40px rgba(0,0,0,.3);
+      opacity:0;animation:fadeUp .8s var(--ease) .4s forwards;
+    }
+    .page-hero-title em{
+      font-style:italic;
+      color:var(--mint-light);
+      text-shadow:0 0 60px rgba(169,216,200,.45);
+    }
+    /* Brighter sub — more readable against lighter bg */
+    .page-hero-sub{
+      font-size:clamp(.95rem,1.5vw,1.1rem);
+      line-height:1.85;
+      color:rgba(255,255,255,.78);
+      font-weight:300;
+      margin-top:1.5rem;
+      max-width:640px;
+      margin-left:auto;margin-right:auto;
+      text-shadow:0 1px 12px rgba(0,0,0,.35);
+      opacity:0;animation:fadeUp .7s var(--ease) .55s forwards;
+    }
     .hero-trust{display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:2.5rem;opacity:0;animation:fadeUp .6s var(--ease) .7s forwards}
-    .trust-item{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:rgba(255,255,255,.4);letter-spacing:.05em}
+    .trust-item{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:rgba(255,255,255,.65);letter-spacing:.05em}
     .trust-item span:first-child{font-size:1rem}
-    .trust-divider{width:1px;height:16px;background:rgba(255,255,255,.1)}
+    .trust-divider{width:1px;height:16px;background:rgba(255,255,255,.2)}
     @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 
     /* SHARED */
@@ -126,11 +193,8 @@
     .tier-card:hover{border-color:rgba(169,216,200,.5);transform:translateY(-6px);box-shadow:0 24px 70px rgba(26,46,42,.1)}
     .tier-card.featured{background:var(--dark-bg);border-color:rgba(169,216,200,.3);transform:translateY(-12px);box-shadow:0 32px 90px rgba(26,46,42,.35)}
     .tier-card.featured:hover{transform:translateY(-18px);box-shadow:0 40px 100px rgba(26,46,42,.45)}
-
-    /* Tier card image strip */
     .tier-img{width:calc(100% + 4rem);margin:-2.5rem -2rem 1.8rem;height:140px;object-fit:cover;display:block}
     .tier-card.featured .tier-img{filter:brightness(.75) saturate(.8)}
-
     .tier-popular{position:absolute;top:0;left:50%;transform:translateX(-50%);background:var(--mint);color:var(--dark-bg);font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:.35rem 1.2rem;border-radius:0 0 8px 8px;white-space:nowrap}
     .tier-badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;padding:.3rem .9rem;border-radius:100px;margin-bottom:1.5rem;font-weight:600}
     .tier-card:not(.featured) .tier-badge{background:rgba(169,216,200,.12);border:1px solid rgba(169,216,200,.3);color:var(--mint-deep)}
@@ -346,6 +410,7 @@
 <section class="page-hero">
   <div class="page-hero-bg"></div>
   <div class="page-hero-tint"></div>
+  <div class="page-hero-wash"></div>
   <div class="hero-grid"></div>
   <div class="particles" id="particles"></div>
   <div class="page-hero-inner">
@@ -406,7 +471,6 @@
       <ul class="tier-features">
         <li><span class="check">✓</span>Everything in Community Membership</li>
         <li><span class="check">✓</span>Access to curated Mentorship Circles</li>
-        
         <li><span class="check">✓</span>Access to the WILLNET podcast community</li>
         <li><span class="check">✓</span>Networking opportunities within the community</li>
         <li><span class="check">✓</span>Monthly Leadership Learning Sessions (live + recorded)</li>
@@ -419,7 +483,7 @@
     </div>
 
     <div class="tier-card girls reveal" style="transition-delay:.25s">
-      <img class="tier-img" src="https://media.istockphoto.com/id/2220126511/photo/cheerful-youth-girls-flag-football-teammates-sitting-together-after-practice-at-sunset.webp?a=1&b=1&s=612x612&w=0&k=20&c=Edd5KGhxunL3XBdCoGCtoKMbI2j-qT9fvCs1tmNwVbY=" alt="Girls Corner"/>
+      <img class="tier-img" src="https://willnet.vercel.app/WhatsApp%20Image%202026-03-16%20at%2011.18.49%20(3).jpeg" alt="Girls Corner"/>
       <div class="tier-badge">👩‍🎓 Youth</div>
       <div class="tier-name">Girls Corner</div>
       <div class="tier-tagline">A special initiative designed for teenage girls aged 13–19 to develop confidence, leadership, and purpose early.</div>
@@ -510,7 +574,7 @@
     </div>
     <div class="testi-grid">
       <div class="testi-card reveal" style="transition-delay:.05s">
-        <img class="testi-card-img" src="https://images.unsplash.com/photo-1495837174058-628aafc7d610?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3JvdXAlMjBvZiUyMGdpcmxzfGVufDB8fDB8fHww" alt="Leadership Circle Member"/>
+        <img class="testi-card-img" src="https://images.unsplash.com/photo-1646296066880-c61cac79470b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHdvbWVuJTIwbGVhZGVyc3xlbnwwfHwwfHx8MA%3D%3D" alt="Leadership Circle Member"/>
         <div class="testi-card-body">
           <div class="testi-tier-tag">Leadership Circle</div>
           <div class="testi-quote">"</div>
