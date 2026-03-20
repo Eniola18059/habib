@@ -204,19 +204,18 @@
     .hiw-desc{font-size:.84rem;color:#666;line-height:1.65}
 
     /* TESTIMONIALS */
-    .testi-section{background:var(--dark-bg);padding:clamp(4rem,8vw,7rem) 0;overflow:hidden;position:relative}
-    .testi-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1400&q=40&fit=crop');background-size:cover;background-position:center;opacity:.05;pointer-events:none}
-    .testi-inner{max-width:1200px;margin:0 auto;padding:0 5%;position:relative;z-index:1}
-    .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-    .testi-card{background:rgba(255,255,255,.05);border:1px solid rgba(169,216,200,.12);border-radius:12px;padding:2rem;position:relative;transition:border-color .35s,transform .35s,background .35s}
-    .testi-card:hover{border-color:rgba(169,216,200,.3);transform:translateY(-5px);background:rgba(169,216,200,.04)}
-    .testi-quote-icon{font-family:'Cormorant Garamond',serif;font-size:4rem;color:rgba(169,216,200,.2);line-height:1;margin-bottom:.5rem}
-    .testi-text{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;color:rgba(255,255,255,.78);line-height:1.8;font-style:italic;margin-bottom:1.5rem}
-    .testi-author{display:flex;align-items:center;gap:.8rem}
-    .testi-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--mint),var(--rose));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:.9rem;font-weight:600;color:var(--white);flex-shrink:0}
-    .testi-name{font-size:.85rem;font-weight:600;color:var(--white)}
-    .testi-role{font-size:.75rem;color:rgba(255,255,255,.5);margin-top:.1rem}
-    .testi-tag{position:absolute;top:1.2rem;right:1.2rem;background:rgba(169,216,200,.1);border:1px solid rgba(169,216,200,.2);color:var(--mint);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;padding:.25rem .7rem;border-radius:100px}
+    .testi{background:var(--cream);padding:var(--pad) var(--side)}
+    .testi-inner{max-width:1200px;margin:0 auto}
+    .testi-head{text-align:center;max-width:520px;margin:0 auto 3rem}
+    .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+    .tc{background:var(--white);border:1px solid rgba(43,43,43,.07);border-radius:12px;padding:2rem;transition:transform .35s,box-shadow .35s}
+    .tc:hover{transform:translateY(-5px);box-shadow:0 20px 55px rgba(169,216,200,.14)}
+    .tc-qm{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--mint);line-height:.75;opacity:.45;margin-bottom:.6rem}
+    .tc-text{font-size:.92rem;line-height:1.85;color:var(--text-mid);font-style:italic;font-family:'Cormorant Garamond',serif;margin-bottom:1.4rem}
+    .tc-author{display:flex;align-items:center;gap:.8rem}
+    .tc-av{width:42px;height:42px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid rgba(169,216,200,.3);flex-shrink:0}
+    .tc-name{font-size:.85rem;font-weight:600;color:var(--text-dark)}
+    .tc-role{font-size:.72rem;color:var(--text-muted);margin-top:.1rem}
 
     /* EVENTS */
     .events-section{background:var(--white)}
@@ -645,7 +644,7 @@
         <div class="event-body">
           <div class="event-desc">A deep dive into communication, presence, and how to speak with confidence in high-stakes environments. Practical exercises included.</div>
           <div class="event-meta">
-            <div class="event-meta-item"><span>🕐</span><span>6:00 PM – 8:00 PM ESTpan></div>
+            <div class="event-meta-item"><span>🕐</span><span>6:00 PM – 8:00 PM EST<span></div>
             <div class="event-meta-item"><span>💻</span><span>Online via Zoom</span></div>
           </div>
           <button class="event-register">Register Now →</button>
